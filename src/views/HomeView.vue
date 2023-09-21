@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import Navigation from '../components/Navigation.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <Navigation />
+    <p class="text-red-500">echek</p>
   </main>
 </template>
