@@ -4,8 +4,20 @@ module.exports = {
     "./src/**/*.{html,js,vue}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Work Sans', 'sans-serif'],
+      },
+    },
+    colors: {
+      'primary': '#292561',
+      'white': '#ffffff',
+      'black': '#000000',
+      'accent': '#2670b7'
+    }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 

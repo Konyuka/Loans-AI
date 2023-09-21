@@ -2,84 +2,115 @@
 </script>
 
 <template>
-    <div class="2xl:container 2xl:mx-auto">
-        <div class="bg-white dark:bg-gray-800 rounded shadow-lg py-5 px-7">
-            <nav class="flex justify-between">
-                <div class="flex items-center space-x-3 lg:pr-16 pr-6">
-                    <img class="cursor-pointer dark:bg-white p-1 rounded-full"
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg1.svg" alt="circle" />
-                    <h2 class="font-normal text-2xl leading-6 text-gray-800 dark:text-white">OvonRueden</h2>
-                </div>
+    <nav class="bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 justify-around">
+                <div class="flex">
+                    <div class="-ml-2 mr-2 flex items-center md:hidden">
+                        <!-- Mobile menu button -->
+                        <button type="button"
+                            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Open main menu</span>
+                            <!--
+              Icon when menu is closed.
 
-                <!-- For medium and plus sized devices -->
-                <ul class="hidden md:flex flex-auto space-x-2">
-                    <li onclick="selected()"
-                        class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white bg-indigo-600 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">
-                        Collections</li>
-                    <li onclick="selected()"
-                        class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">
-                        Arts</li>
-                    <li onclick="selected()"
-                        class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">
-                        Space</li>
-                    <li onclick="selected()"
-                        class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">
-                        Game</li>
-                    <li onclick="selected()"
-                        class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">
-                        Utility</li>
-                    <li onclick="selected()"
-                        class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-gray-600 border border-white bg-gray-50 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3 shadow-md rounded">
-                        Cards</li>
-                </ul>
-                <div class="flex space-x-5 justify-center items-center pl-2">
-                    <div
-                        class="relative dark:bg-white rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
-                        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg2.svg" alt="chat" />
-                        <div
-                            class="animate-ping w-1.5 h-1.5 bg-indigo-700 rounded-full absolute -top-1 -right-1 m-auto duration-200">
-                        </div>
-                        <div class="w-1.5 h-1.5 bg-indigo-700 rounded-full absolute -top-1 -right-1 m-auto shadow-lg"></div>
+              Menu open: "hidden", Menu closed: "block"
+            -->
+                            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                            <!--
+              Icon when menu is open.
+
+              Menu open: "block", Menu closed: "hidden"
+            -->
+                            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </div>
 
-                    <img class="cursor-pointer dark:bg-white rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg3.svg" alt="bell" />
-                </div>
-            </nav>
-            <!-- for smaller devcies -->
-
-            <div class="block md:hidden w-full mt-5">
-                <div onclick="selectNew()"
-                    class="cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full">
-                    <div class="flex space-x-2">
-                        <span id="s1" class="font-semibold text-sm leading-3 hidden">Selected: </span>
-                        <p id="textClicked"
-                            class="font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer">
-                            Collections</p>
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="h-14 w-auto" src="@/assets/img/logo.png" alt="Your Company">
                     </div>
-                <img id="ArrowSVG" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-1-svg4.svg"
-                    alt="down arrow" class="rotate-180 transform" />
-            </div>
-            <div class="relative">
-                <ul id="list"
-                    class="hidden font-normal text-base leading-4 absolute top-2 w-full rounded shadow-md z-20">
-                    <li onclick="selectedSmall()"
-                        class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">
-                        Arts</li>
-                    <li onclick="selectedSmall()"
-                        class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">
-                        Space</li>
-                    <li onclick="selectedSmall()"
-                        class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">
-                        Game</li>
-                    <li onclick="selectedSmall()"
-                        class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">
-                        Utility</li>
-                    <li onclick="selectedSmall()"
-                        class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal focus:text-black">
-                        Cards</li>
-                </ul>
+
+                    <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                        <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                            aria-current="page">Dashboard</a>
+                        <a href="#"
+                            class="text-black transform transition hover:scale-125 duration-600 ease-in-out hover:bg-accent hover:text-white rounded-md px-3 py-2 text-sm font-semibold">Loan Types</a>
+                        <a href="#"
+                            class="text-black transform transition hover:scale-125 duration-600 ease-in-out hover:bg-accent hover:text-white rounded-md px-3 py-2 text-sm font-semibold">Disbursment</a>
+                        <a href="#"
+                            class="text-black transform transition hover:scale-125 duration-600 ease-in-out hover:bg-accent hover:text-white rounded-md px-3 py-2 text-sm font-semibold">Repayment</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <button type="button"
+                            class="rounded-md bg-primary px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Contact US
+                        </button>
+                    </div>
+                    <div class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
+                      
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div></template>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                    aria-current="page">Dashboard</a>
+                <a href="#"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+                <a href="#"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+                <a href="#"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+            </div>
+            <div class="border-t border-gray-700 pb-3 pt-4">
+
+                <div class="flex items-center px-5 sm:px-6">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full"
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt="">
+                    </div>
+                    <div class="ml-3">
+                        <div class="text-base font-medium text-white">Tom Cook</div>
+                        <div class="text-sm font-medium text-gray-400">tom@example.com</div>
+                    </div>
+                    <button type="button"
+                        class="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span class="absolute -inset-1.5"></span>
+                        <span class="sr-only">View notifications</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-3 space-y-1 px-2 sm:px-3">
+                    <a href="#"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your
+                        Profile</a>
+                    <a href="#"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
+                    <a href="#"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign
+                        out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</template>
