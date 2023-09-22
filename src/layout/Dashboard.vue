@@ -24,7 +24,7 @@ const userSettings = ref(false);
                                     <div class="flex space-x-4">
                                         <!-- Current: "bg-indigo-700 text-white", Default: "text-white hover:bg-indigo-500 hover:bg-opacity-75" -->
                                         <a href="#"
-                                            class="bg-black text-white rounded-md py-2 px-3 text-sm font-medium transform transition hover:scale-125 duration-600 ease-in-out"
+                                            class="bg-white text-black rounded-md py-2 px-3 text-sm font-medium transform transition hover:scale-125 duration-600 ease-in-out"
                                             aria-current="page">Dashboard</a>
                                         <a href="#"
                                             class="text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium transform transition hover:scale-125 duration-600 ease-in-out">Loan Status</a>
