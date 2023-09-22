@@ -29,7 +29,7 @@ const otpSent = ref(false);
                                 </div>
                             </div>
                             <div class="w-full">
-                                <label for="email" class="block text-sm font-medium leading-6 text-white">First Name</label>
+                                <label for="email" class="block text-sm font-medium leading-6 text-white">Last Name</label>
                                 <div class="mt-2">
                                     <input id="email" name="email" type="email" autocomplete="email" required
                                         class="block w-full rounded-md border-0 bg-white py-1.5 text-black font-semibold text-center shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6">
