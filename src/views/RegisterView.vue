@@ -142,7 +142,7 @@ const otpSent = ref(false);
                 <p class="mt-10 text-center text-sm text-white">
                     Already a member?
                     <RouterLink to="/login"
-                        class="ml-2 transform transition hover:scale-95 duration-600 ease-in-out font-semibold leading-6 text-accent hover:text-white">
+                        class="ml-2 transform transition hover:scale-95 duration-600 ease-in-out font-semibold leading-6 text-primary hover:text-white">
                         Sign in here
                     </RouterLink>
 
