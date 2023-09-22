@@ -100,7 +100,7 @@ import { RouterLink } from 'vue-router'
                 </p>
                 <div class="mt-16 flex items-center gap-x-6">
                   <RouterLink to="/register"
-                    class="transform transition hover:scale-125 duration-600 ease-in-out hover:bg-accent hover:text-white rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    class="transform transition hover:scale-125 duration-600 ease-in-out hover:bg-accent hover:text-white rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-2xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Get started
                   </RouterLink>
                   <RouterLink to="/login" class="transform transition hover:scale-125 duration-600 ease-in-out text-md font-semibold leading-6 text-gray-900">
