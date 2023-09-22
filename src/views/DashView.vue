@@ -6,5 +6,6 @@ import DashboardLayout from '../layout/Dashboard.vue';
 <template>
     <DashboardLayout>
         <p>Something</p>
+        
     </DashboardLayout>
 </template>
