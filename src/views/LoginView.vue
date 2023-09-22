@@ -97,7 +97,9 @@ const otpConfirmed = ref(false);
                 </form>
 
                 <p class="mt-10 text-center text-sm text-white">
-                    Not a member?
+                    <RouterLink to="/dashboard">
+                        Not a member?
+                    </RouterLink>
                     <RouterLink to="/register"
                         class="ml-2 transform transition hover:scale-95 duration-600 ease-in-out font-semibold leading-6 text-primary hover:text-white">
                         Get started here
