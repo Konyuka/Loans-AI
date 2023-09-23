@@ -8,7 +8,7 @@ const otpConfirmed = ref(false);
 <template>
     <main>
 
-        <div class="bg-black bg-opacity-30 flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="bg-black bg-opacity-20 flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8">
             <RouterLink to="/" class="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img class="mx-auto h-20 w-auto" src="@/assets/img/logo.png" alt="Your Company">
                 <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign in to your account
