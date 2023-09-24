@@ -15,7 +15,8 @@ module.exports = {
       'black': '#000000',
       'accent': '#2670b7',
       'floor': '#fafafa',
-      'slate': '#f1f5f9'
+      'slate': '#f1f5f9',
+      'gray': '#9ca3af',
     }
   },
   plugins: [

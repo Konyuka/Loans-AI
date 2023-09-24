@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router'
                     <i class="fas fa-arrow-left fa-xl"></i>
                 </div>
                 <div>
-                    <h2 class="text-xl font-bold">Sign in</h2>
+                    <h2 class="text-xl font-semibold text-primary">Sign in</h2>
                 </div>
             </div>
 
@@ -66,6 +66,7 @@ import { RouterLink } from 'vue-router'
                             </span>
                         </button>
                     </div>
+                    
                 </div>
             </div>
 
