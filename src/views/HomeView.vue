@@ -8,8 +8,9 @@ import DigitView from "@/components/DigitView.vue";
 import ForgotView from "@/components/ForgotView.vue";
 import ResetView from "@/components/ResetView.vue";
 import ConfirmView from "@/components/ConfirmView.vue";
+import DashView from "@/components/DashView.vue";
 
-const currentView = ref(7);
+const currentView = ref(8);
 
 
 </script>
@@ -24,6 +25,7 @@ const currentView = ref(7);
       <ForgotView v-if="currentView==5" />
       <ResetView v-if="currentView==6" />
       <ConfirmView v-if="currentView==7" />
+      <DashView v-if="currentView==8" />
     </div>
 
   </main>
