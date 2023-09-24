@@ -13,7 +13,9 @@ module.exports = {
       'primary': '#292561',
       'white': '#ffffff',
       'black': '#000000',
-      'accent': '#2670b7'
+      'accent': '#2670b7',
+      'floor': '#fafafa',
+      'slate': '#f1f5f9'
     }
   },
   plugins: [
