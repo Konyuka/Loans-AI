@@ -1,6 +1,11 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
+const emit = defineEmits([
+    'signInView',
+    'signUpView'
+]);
+
 </script>
 
 <template>
@@ -15,7 +20,7 @@ import { RouterLink } from 'vue-router'
                         <!-- <i class="fas fa-arrow-left fa-xl"></i> -->
                     </div>
                     <div>
-                        <h2 class="text-xl font-semibold text-primary">Sign in</h2>
+                        <!-- <h2 class="text-xl font-semibold text-primary">Sign in</h2> -->
                     </div>
                 </div>
 
@@ -32,14 +37,14 @@ import { RouterLink } from 'vue-router'
                 </div>
 
                 <div class="flex flex-col place-content-center mt-5">
-                    <button type="button"
+                    <button @click="$emit('signInView')" type="button"
                         class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         Sign in
                     </button>
 
                     <h2 class="tracking-wide my-4 text-center">Haven't registered?</h2>
 
-                    <button type="button"
+                    <button @click="$emit('signUpView')" type="button"
                         class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         Sign up
                     </button>

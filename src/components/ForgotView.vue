@@ -1,6 +1,11 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
+const emit = defineEmits([
+    'signInView',
+    'confirmView',
+]);
+
 </script>
 
 <template>
@@ -10,7 +15,9 @@ import { RouterLink } from 'vue-router'
         <div class="relative isolate px-6 pt-7 lg:px-8 w-screen">
             <div class="flex">
                 <div class="mt-1 mr-[10vh]">
-                    <i class="fas fa-arrow-left fa-xl"></i>
+                    <button @click="$emit('signInView')">
+                        <i class="fas fa-arrow-left fa-xl"></i>
+                    </button>
                 </div>
                 <div>
                     <h2 class="text-xl font-semibold text-primary">Forgot Password</h2>
@@ -26,7 +33,7 @@ import { RouterLink } from 'vue-router'
 
                     <div class="grid grid-cols-1 gap-10 mt-20">
 
-                        <div class="flex place-content-center rounded-lg bg-black bg-opacity-5 h-20 w-18">
+                        <div @click="$emit('confirmView')" class="flex place-content-center rounded-lg bg-black bg-opacity-5 h-20 w-18">
                             <div class="self-center flex gap-10 w-3/4 justify-around"> 
                                 <div>
                                     <i class="fas fa-sms text-5xl fa-2xl text-primary mt-1"></i>
@@ -58,7 +65,7 @@ import { RouterLink } from 'vue-router'
                             </div>
                         </div>
 
-                        <div class="flex place-content-center rounded-lg bg-black bg-opacity-5 h-20 w-18">
+                        <div @click="$emit('confirmView')" class="flex place-content-center rounded-lg bg-black bg-opacity-5 h-20 w-18">
                             <div class="self-center flex gap-10 w-3/4 justify-around"> 
                                 <div>
                                     <i class="fas fa-envelope text-5xl fa-2xl text-primary mt-1"></i>

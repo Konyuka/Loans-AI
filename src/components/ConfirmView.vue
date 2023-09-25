@@ -1,6 +1,10 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
+const emit = defineEmits([
+    'signInView'
+]);
+
 </script>
 
 <template>
@@ -22,7 +26,7 @@ import { RouterLink } from 'vue-router'
 
                     <div class="grid grid-cols-1 gap-10 mt-20">
                         <div class="flex flex-col place-content-center mt-5">
-                            <button type="button"
+                            <button @click="$emit('signInView')" type="button"
                                 class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                 <span>
                                     Continue

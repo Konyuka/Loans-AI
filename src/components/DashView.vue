@@ -1,5 +1,11 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { ref } from "vue";
+import Slider from '@vueform/slider'
+
+const amount = ref(20);
+const duration = ref(1);
+
 
 </script>
 
@@ -19,126 +25,73 @@ import { RouterLink } from 'vue-router'
                         </a>
                     </div>
 
-                    <div class="mt-10">
+                    <div class="grid grid-cols-1 gap-20 my-10">
+
                         <div class="relative">
+                            <Slider v-model="amount" :min="20" :max="200" :step="10" class="slider-red" />
 
-                            <input id="large-range" type="range" value="50" min="20" max="200" step="20"
-                                class="w-full h-2 bg-gray rounded-lg appearance-none cursor-pointer range-lg dark:bg-black">
-                            <!-- <div class="absolute h-4 flex items-center justify-center w-4 rounded-full bg-white shadow border border-gray-300 -ml-2 top-0 cursor-pointer"
-                                unselectable="on" onselectstart="return false;" style="left: 11.2903%;">
-                                <div class="relative -mt-2 w-1">
-                                    <div class="absolute z-40 opacity-100 bottom-100 mb-2 left-0 min-w-full"
-                                        style="margin-left: -25px;">
-                                        <div class="relative shadow-md">
-                                            <div class="bg-black -mt-8 text-white truncate text-xs rounded py-1 px-4">
-                                                $ 15</div>
-                                            <svg class="absolute text-black w-full h-2 left-0 top-100" x="0px" y="0px"
-                                                viewBox="0 0 255 255" xml:space="preserve">
-                                                <polygon class="fill-current" points="0,0 127.5,127.5 255,0">
-                                                </polygon>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="absolute text-gray-800 -ml-1 bottom-0 left-0 -mb-6">10</div>
-                            <div class="absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6">150</div>
-
-                        </div>
-
-                        <input
-        type="range" min="0" max="100" value="50" step="any" 
-        class="w-full h-full appearance-none flex items-center cursor-pointer bg-transparent z-30
-        [&::-webkit-slider-thumb]:bg-blue-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-0 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:appearance-none
-        [&::-moz-range-thumb]:bg-blue-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:w-2.5 [&::-moz-range-thumb]:h-2.5 [&::-moz-range-thumb]:appearance-none
-        [&::-ms-thumb]:bg-blue-600 [&::-ms-thumb]:rounded-full [&::-ms-thumb]:border-0 [&::-ms-thumb]:w-2.5 [&::-ms-thumb]:h-2.5 [&::-ms-thumb]:appearance-none
-        [&::-webkit-slider-runnable-track]:bg-neutral-200 [&::-webkit-slider-runnable-track]:rounded-full [&::-webkit-slider-runnable-track]:overflow-hidden [&::-moz-range-track]:bg-neutral-200 [&::-moz-range-track]:rounded-full [&::-ms-track]:bg-neutral-200 [&::-ms-track]:rounded-full
-        [&::-moz-range-progress]:bg-blue-400 [&::-moz-range-progress]:rounded-full [&::-ms-fill-lower]:bg-blue-400 [&::-ms-fill-lower]:rounded-full [&::-webkit-slider-thumb]:shadow-[-999px_0px_0px_990px_#4e97ff]
-    ">
-
-                        <!-- component -->
-                        <div class="flex  w-64 m-auto items-center h-32 justify-center">
-                            <div class="py-1 relative min-w-full">
-                                <div class="h-2 bg-gray-200 rounded-full">
-                                    <div class="absolute h-2 rounded-full bg-teal-600 w-0" style="width: 58.5714%;"></div>
-                                    <div class="absolute h-4 flex items-center justify-center w-4 rounded-full bg-white shadow border border-gray-300 -ml-2 top-0 cursor-pointer"
-                                        unselectable="on" onselectstart="return false;" style="left: 58.5714%;">
-                                        <div class="relative -mt-2 w-1">
-                                            <div class="absolute z-40 opacity-100 bottom-100 mb-2 left-0 min-w-full"
-                                                style="margin-left: -20.5px;">
-                                                <div class="relative shadow-md">
-                                                    <div
-                                                        class="bg-black -mt-8 text-white truncate text-xs rounded py-1 px-4">
-                                                        92</div>
-                                                    <svg class="absolute text-black w-full h-2 left-0 top-100" x="0px"
-                                                        y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                                                        <polygon class="fill-current" points="0,0 127.5,127.5 255,0">
-                                                        </polygon>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="absolute text-gray-800 -ml-1 bottom-0 left-0 -mb-6">10</div>
-                                    <div class="absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6">150</div>
+                            <div class="absolute grid grid-cols-3 w-full mt-2">
+                                <div class="text-gray -mb-6 ">20 OMR</div>
+                                <div class="text-gray -mb-6 relative"><span class="absolute right-3">100 OMR</span></div>
+                                <div class="text-gray -mb-6 right-0 relative"><span class="absolute right-0">200 OMR</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- between two numbers -->
+                        <div class="relative">
+                            <Slider v-model="duration" :min="1" :max="3" :step="1" class="slider-red" />
 
-                        <div class="flex w-64 m-auto items-center h-32 justify-center">
-                            <div class="py-1 relative min-w-full">
-                                <div class="h-2 bg-gray-200 rounded-full">
-                                    <div class="absolute h-2 rounded-full bg-black w-0"
-                                        style="width: 24.1935%; left: 11.2903%;"></div>
-                                    <div class="absolute h-4 flex items-center justify-center w-4 rounded-full bg-white shadow border border-gray-300 -ml-2 top-0 cursor-pointer"
-                                        unselectable="on" onselectstart="return false;" style="left: 11.2903%;">
-                                        <div class="relative -mt-2 w-1">
-                                            <div class="absolute z-40 opacity-100 bottom-100 mb-2 left-0 min-w-full"
-                                                style="margin-left: -25px;">
-                                                <div class="relative shadow-md">
-                                                    <div
-                                                        class="bg-black -mt-8 text-white truncate text-xs rounded py-1 px-4">
-                                                        $ 15</div>
-                                                    <svg class="absolute text-black w-full h-2 left-0 top-100" x="0px"
-                                                        y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                                                        <polygon class="fill-current" points="0,0 127.5,127.5 255,0">
-                                                        </polygon>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="absolute h-4 flex items-center justify-center w-4 rounded-full bg-white shadow border border-gray-300 -ml-2 top-0 cursor-pointer"
-                                        unselectable="on" onselectstart="return false;" style="left: 35.4839%;">
-                                        <div class="relative -mt-2 w-1">
-                                            <div class="absolute z-40 opacity-100 bottom-100 mb-2 left-0 min-w-full"
-                                                style="margin-left: -25px;">
-                                                <div class="relative shadow-md">
-                                                    <div
-                                                        class="bg-black -mt-8 text-white truncate text-xs rounded py-1 px-4">
-                                                        $ 30</div>
-                                                    <svg class="absolute text-black w-full h-2 left-0 top-100" x="0px"
-                                                        y="0px" viewBox="0 0 255 255" xml:space="preserve">
-                                                        <polygon class="fill-current" points="0,0 127.5,127.5 255,0">
-                                                        </polygon>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="absolute text-gray-800 -ml-1 bottom-0 left-0 -mb-6">$ 8</div>
-                                    <div class="absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6">$ 70</div>
+                            <div class="absolute grid grid-cols-3 w-full mt-2">
+                                <div class="text-gray -mb-6 ">1 Month</div>
+                                <div class="text-gray -mb-6 relative"><span class="absolute right-3">2 Months</span></div>
+                                <div class="text-gray -mb-6 right-0 relative"><span class="absolute right-0">3 Months</span>
                                 </div>
                             </div>
                         </div>
 
                     </div>
 
+                    <div class="grid grid-cols-2 gap-2 pt-5">
 
-                    <div class="flex flex-col place-content-center mt-5">
+                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan taken</p>
+                            <p class="self-center text-primary font-bold">200 OMR</p>
+                        </div>
+                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan taken</p>
+                            <p class="self-center text-primary font-bold">200 OMR</p>
+                        </div>
+                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan taken</p>
+                            <p class="self-center text-primary font-bold">200 OMR</p>
+                        </div>
+                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan taken</p>
+                            <p class="self-center text-primary font-bold">200 OMR</p>
+                        </div>
+                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan taken</p>
+                            <p class="self-center text-primary font-bold">200 OMR</p>
+                        </div>
+                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan taken</p>
+                            <p class="self-center text-primary font-bold">200 OMR</p>
+                        </div>
+
+
+                    </div>
+
+                    <div class="flex items-center py-5">
+                        <input id="remember-me" name="remember-me" type="checkbox"
+                            class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary ">
+                        <label for="remember-me" class="ml-3 block text-xs leading-6 text-gray-900">I accept that I have read our <a href="#"
+                                class="text-primary font-semibold hover:cursor-pointer">terms & conditions</a>
+                        </label>
+                    </div>
+
+
+
+                    <div class="flex flex-col place-content-center my-5">
                         <button type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>
@@ -159,4 +112,14 @@ import { RouterLink } from 'vue-router'
     </main>
 </template>
 
-<style></style>
+<style src="@vueform/slider/themes/default.css"></style>
+
+<style scoped>
+.slider-red {
+    --slider-connect-bg: #292561;
+    --slider-tooltip-bg: #292561;
+    --slider-handle-ring-color: black;
+    --slider-height: 10px;
+    --slider-radius: 9999px;
+}
+</style>
