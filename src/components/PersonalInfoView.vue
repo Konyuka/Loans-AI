@@ -23,6 +23,7 @@
                         </div>
                     </div>
 
+
                     <div class="grid grid-cols-1 gap-2 my-5">
                         <div class=" relative mt-2">
                             <input id="name" name="name" type="text" autocomplete="first-name" required

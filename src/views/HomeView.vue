@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { ref } from "vue";
-import SignInLanding from "@/components/SignInLanding.vue";
+import SignInLanding from "@/components/SignInLanding.vue"; 
 import SignInView from "@/components/SignInView.vue";
 import SignUpView from "@/components/SignUpView.vue";
 import DigitView from "@/components/DigitView.vue";
@@ -19,7 +19,7 @@ import VerificationSuccessView from "@/components/VerificationSuccessView.vue";
 import ReceivingView from "@/components/ReceivingView.vue";
 import DueView from "@/components/DueView.vue";
 
-const currentView = ref(17);
+const currentView = ref(1);
 
 
 </script>

@@ -34,7 +34,7 @@
                             </div>
                         </div>
 
-                        <div class="relative mt-2 rounded-md shadow-sm">
+                        <div class="relative mt-2 rounded-md shadow-lg">
                             <div class="absolute inset-y-0 left-0 flex items-center">
                                 <select disabled id="country" name="country" autocomplete="country"
                                     class="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm">

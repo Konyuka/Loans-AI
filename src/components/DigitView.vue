@@ -1,5 +1,45 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { ref, computed, onMounted } from "vue";
+import { useUserData } from '@/stores/userData'
+const userData = useUserData()
+
+const timeRemaining = ref(5);
+const timer = ref(null);
+const formattedTime = computed(()=>{
+    const minutes = Math.floor(timeRemaining.value / 60);
+    const seconds = timeRemaining.value % 60;
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+});
+
+const spaceUserData = (number) => {
+    const numberString = String(number);
+    const characters = numberString.split('');
+    characters.reverse();
+    for (let i = 3; i < characters.length; i += 4) {
+        characters.splice(i, 0, ' ');
+    }
+    characters.reverse();
+    const formattedNumberString = characters.join('');
+    return formattedNumberString;
+}
+
+const resetTimer = () => {
+    clearInterval(timer.value);
+    timer.value = setInterval(updateTime, 1000);
+    timeRemaining.value = 90;
+}
+
+const updateTime = () => {
+    if (timeRemaining.value > 0) {
+        timeRemaining.value -= 1;
+    } else {
+        clearInterval(timer.value);
+    }
+}
+
+onMounted(()=>{
+    timer.value = setInterval(updateTime, 1000);
+});
 
 </script>
 
@@ -21,8 +61,26 @@ import { RouterLink } from 'vue-router'
                 <div class="self-center">
                     <h1 class="text-4xl text-center">Enter 4-digit verification code</h1>
                     <div class="text-center mt-10">
-                        <p>Enter the code sent to +968 716 202 289</p>
-                        <p>This code wil expire in 01:30</p>
+                        <p>Enter the code sent to <br>
+
+                            <span class="font-semibold">
+                                +968 {{ spaceUserData(userData.userData.number) }}
+                            </span>
+                        </p>
+                        <p v-if="timeRemaining > 0">This code wil expire in <br>
+                            <div>
+                                <span class="font-semibold">
+                                    {{ formattedTime  }}
+                                </span>
+                            </div>
+                        </p>
+                    </div>
+
+                    <div v-if="timeRemaining <= 0" class="mt-5">
+                        <button @click="resetTimer()" type="button"
+                            class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Resend Code
+                        </button>
                     </div>
 
                     <div class="grid grid-cols-4 gap-5 mt-20">

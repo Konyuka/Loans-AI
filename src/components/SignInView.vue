@@ -1,6 +1,9 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import { ref } from "vue";
+import { useUserData } from '@/stores/userData'
+
+const userData = useUserData()
 
 const emit = defineEmits([
     'forgotView',
@@ -9,6 +12,15 @@ const emit = defineEmits([
 ]);
 
 const stage = ref(1);
+
+const user = ref({
+    email:null,
+    password:null,
+});
+
+const signIn = () => {
+    userData.updateUserData(user.value);
+}
 
 </script>
 
@@ -42,13 +54,13 @@ const stage = ref(1);
 
                     <div class="my-20">
                         <div @click="stage = 1" v-if="stage == 1" class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" required
+                            <input v-model="user.email" id="email" name="email" type="email" autocomplete="email" required
                                 class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide  font-medium text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6"
                                 placeholder="Email">
                         </div>
                         <div v-if="stage==2">
                             <div class="mt-2">
-                                <input id="password" name="password" type="password" autocomplete="password" required
+                                <input v-model="user.password" id="password" name="password" type="password" autocomplete="password" required
                                     class="px-5 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-medium text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6"
                                     placeholder="Password">
                             </div>
@@ -76,7 +88,7 @@ const stage = ref(1);
                                 Next 
                             </span>
                         </button>
-                        <button v-if="stage == 2" type="button"
+                        <button @click="signIn()" v-if="stage == 2" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                            
                             <span>

@@ -1,5 +1,26 @@
 <script setup>
+import { ref, onMounted } from "vue";
 
+onMounted(()=>{
+    getFiancialInfo();
+});
+
+const financialInfo = ref(null);
+const errorMessage = ref(false);
+
+const getFiancialInfo = () => {
+    axios.post(route('named.route'))
+    .then((response)=>{
+        console.log(response.data)
+        financialInfo.value = response.data;
+    })
+    .catch((err)=>{
+        console.log(err);
+        errorMessage.value =! errorMessage.value
+    });
+
+    
+}
 
 
 </script>

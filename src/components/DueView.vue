@@ -1,6 +1,9 @@
 <script setup>
-import { RouterLink } from 'vue-router'
 import Footer from "@/components/Footer.vue";
+
+// const 
+
+
 
 
 </script>
