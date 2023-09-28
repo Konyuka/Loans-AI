@@ -1,15 +1,23 @@
 <script setup>
 import Footer from "@/components/Footer.vue";
+import moment from "moment";
+import { computed } from "vue";
 
-// const 
+import { useLoanData } from '@/stores/loanData'
+const loanData = useLoanData()
 
-
+const nextPaymentDate = computed(()=>{
+    const currentDate = moment();
+    const nextMonthDate = currentDate.add(1, 'months');
+    const formattedDate = nextMonthDate.format('Do MMM YYYY');
+    return formattedDate;
+});
 
 
 </script>
 
 <template>
-    <main>
+    <main class="min-h-screen">
 
 
         <div class="relative isolate px-6 pt-5 lg:px-8 w-screen">
@@ -28,11 +36,11 @@ import Footer from "@/components/Footer.vue";
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-2 my-10">
+                    <div class="grid grid-cols-2 gap-2 my-6">
 
                         <div class="grid grid-cols-1">
                             <p class="self-center text-medium tracking-widest text-md text-gray">Payment Due</p>
-                            <p class="self-center text-primary font-bold text-xl text-center">200 OMR</p>
+                            <p class="self-center text-primary font-bold text-xl text-center">{{ loanData.loanData.amount + loanData.loanData.totalAcrruedInterest }} OMR</p>
                         </div>
 
                         <div>
@@ -55,23 +63,23 @@ import Footer from "@/components/Footer.vue";
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                             <p class="self-center text-medium tracking-widest text-sm text-gray">Next Payment Due</p>
-                            <p class="self-center text-primary font-bold">20th Dec 2023</p>
+                            <p class="self-center text-primary font-bold">{{ nextPaymentDate }}</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                             <p class="self-center text-medium tracking-widest text-sm text-gray">Loan Term</p>
-                            <p class="self-center text-primary font-bold">3 Months </p>
+                            <p class="self-center text-primary font-bold">{{ loanData.loanData.term }} Month(s) </p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                             <p class="self-center text-medium tracking-widest text-sm text-gray">Interest Accrued</p>
-                            <p class="self-center text-primary font-bold">3% </p>
+                            <p class="self-center text-primary font-bold">{{ loanData.loanData.acrruedInterest }} OMR ({{ loanData.loanData.interestRate }})% </p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                             <p class="self-center text-medium tracking-widest text-sm text-gray">Loan Paid</p>
-                            <p class="self-center text-primary font-bold">100 OMR</p>
+                            <p class="self-center text-primary font-bold">20 OMR</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                             <p class="self-center text-medium tracking-widest text-sm text-gray">Loan Penalty</p>
-                            <p class="self-center text-primary font-bold">6 OMR (14 days)</p>
+                            <p class="self-center text-primary font-bold">6 OMR (4 days)</p>
                         </div>
 
 
@@ -80,7 +88,7 @@ import Footer from "@/components/Footer.vue";
                     <div class="bg-gray h-[25vh] bg-opacity-30 w-full mt-10 rounded-md flex place-content-center">
                         <p class="self-center text-primary">Ads banner space</p>
                     </div>
-                    <div class="flex pb-10 mt-3 place-content-center gap-2">
+                    <div class="flex pb-20 mt-3 place-content-center gap-2">
                         <div class="h-3 w-3 rounded-full bg-gray"></div>
                         <div class="h-3 w-3 rounded-full bg-gray"></div>
                         <div class="h-3 w-3 rounded-full bg-gray"></div>
@@ -93,7 +101,7 @@ import Footer from "@/components/Footer.vue";
 
         </div>
 
-        <Footer></Footer>
+        <Footer class="fixed bottom-0"></Footer>
 
 
     </main>

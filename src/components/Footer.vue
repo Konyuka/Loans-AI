@@ -2,15 +2,16 @@
 </script>
 
 <template>
-<main>
-    <div class="w-[100vw] h-10 bg-primary mt-5">
-        <div class="text-center grid grid-cols-4 gap-1 pt-2 text-white">
-            <p>Company</p>
-            <p>Contact Us</p>
-            <p>FAQs</p>
-            <p>T&Cs</p>
+    <main>
+        <div class="w-[100vw] h-10 bg-primary mt-5">
+            <div class="flex justify-around text-white py-2">
+                <p>Company</p>
+                <p>Contacts</p>
+                <p>FAQs</p>
+                <p>T&Cs</p>
+            </div>
         </div>
-    </div>
-</main>
+
+    </main>
 </template>
 

@@ -1,7 +1,15 @@
 <script setup>
-import { RouterLink } from 'vue-router'
 import { ref, computed } from "vue";
 import Slider from '@vueform/slider'
+import Footer from "@/components/Footer.vue";
+
+
+import { useLoanData } from '@/stores/loanData'
+const loanData = useLoanData()
+
+const emit = defineEmits([
+    'identityView'
+]);
 
 const amount = ref(20);
 const duration = ref(1);
@@ -12,6 +20,10 @@ const totalInterestRate = computed(() => {
 
 const interestRate = computed(() => {
     return 3;
+});
+
+const totalAcrruedInterest = computed(() => {
+    return acrruedInterest.value * duration.value
 });
 
 const acrruedInterest = computed(() => {
@@ -26,13 +38,23 @@ const receivingAmount = computed(() => {
     return (amount.value - processingFee.value);
 });
 
-const dueAmount = computed(() => {
-    return (amount.value - processingFee.value);
-});
 
-const totalAcrruedInterest = computed(() => {
-    return acrruedInterest.value * duration.value
-});
+const requestLoan = () => {
+    const loanDetails = {
+        amount: amount.value,
+        term: duration.value,
+        interestRate: interestRate.value,
+        totalInterestRate: totalInterestRate.value,
+        acrruedInterest: acrruedInterest.value,
+        totalAcrruedInterest: totalAcrruedInterest.value,
+        processingFee: processingFee.value,
+        receivingAmount: receivingAmount.value
+    }
+
+    loanData.updateLoanData(loanDetails);
+    emit('identityView')
+
+};
 
 </script>
 
@@ -114,7 +136,7 @@ const totalAcrruedInterest = computed(() => {
                     </div>
 
                     <div class="flex items-center py-5">
-                        <input id="remember-me" name="remember-me" type="checkbox"
+                        <input id="remember-me" name="remember-me" type="checkbox" required
                             class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary ">
                         <label for="remember-me" class="ml-3 block text-xs leading-6 text-gray-900">I accept that I have
                             read our <a href="#" class="text-primary font-semibold hover:cursor-pointer">terms &
@@ -124,8 +146,8 @@ const totalAcrruedInterest = computed(() => {
 
 
 
-                    <div class="flex flex-col place-content-center my-5">
-                        <button type="button"
+                    <div class="flex flex-col place-content-center mb-5">
+                        <button @click="requestLoan()" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>
                                 Get instant loan
@@ -141,6 +163,8 @@ const totalAcrruedInterest = computed(() => {
 
         </div>
 
+        <Footer class="fixed bottom-0"></Footer>
+
 
     </main>
 </template>
@@ -149,8 +173,8 @@ const totalAcrruedInterest = computed(() => {
 
 <style scoped>
 .slider-red {
-    --slider-connect-bg: #292561;
-    --slider-tooltip-bg: #292561;
+    --slider-connect-bg: #1f3357;
+    --slider-tooltip-bg: #1f3357;
     --slider-handle-ring-color: black;
     --slider-height: 10px;
     --slider-radius: 9999px;

@@ -1,26 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-onMounted(()=>{
-    getFiancialInfo();
-});
+const emit = defineEmits([
+    'employmentView',
+    'verificationView'
+]);
 
-const financialInfo = ref(null);
-const errorMessage = ref(false);
 
-const getFiancialInfo = () => {
-    axios.post(route('named.route'))
-    .then((response)=>{
-        console.log(response.data)
-        financialInfo.value = response.data;
-    })
-    .catch((err)=>{
-        console.log(err);
-        errorMessage.value =! errorMessage.value
-    });
-
-    
-}
 
 
 </script>
@@ -37,7 +23,7 @@ const getFiancialInfo = () => {
 
                     <div class="flex w-[90vw] relative">
                         <div class="mt-1 mr-[8vh]">
-                            <i class="fas fa-caret-left fa-xl"></i>
+                            <i @click="$emit('employmentView')" class="fas fa-caret-left fa-xl"></i>
                         </div>
                         <div class="text-center">
                             <h2 class="text-xl font-semibold text-primary">Financial Information</h2>
@@ -75,7 +61,7 @@ const getFiancialInfo = () => {
 
                         <div class="mt-10">
                             <h1 class="text-center text-2xl text-primary font-semibold">Upload documents</h1>
-
+                            <p class="text-xs leading-5 text-gray-600 text-center">PNG, JPG or PDF</p>
                             <fieldset>
                                 <div class="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
 
@@ -84,9 +70,16 @@ const getFiancialInfo = () => {
                                             <label for="side-null"
                                                 class="select-none font-medium text-primary text-lg">Credit Score</label>
                                         </div>
-                                        <div class="ml-3 flex h-6 items-center">
-                                            <input id="side-null" name="plan" type="radio" checked
-                                                class="h-4 w-4 border-gray-300 text-primary focus:ring-indigo-600">
+                                        <div class="text-center">
+                                            <span class="mx-auto">
+                                                <i class="far fa-cloud-arrow-up fa-lg"></i>
+                                                <br>
+                                            </span>
+                                            <label for="file-upload"
+                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                                <span class="text-center text-sm">Upload file</span>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="relative flex items-start py-4">
@@ -94,29 +87,51 @@ const getFiancialInfo = () => {
                                             <label for="side-null"
                                                 class="select-none font-medium text-primary text-lg">Payslip</label>
                                         </div>
-                                        <div class="ml-3 flex h-6 items-center">
-                                            <input id="side-null" name="plan" type="radio" checked
-                                                class="h-4 w-4 border-gray-300 text-primary focus:ring-indigo-600">
+                                        <div class="text-center">
+                                            <span class="mx-auto">
+                                                <i class="far fa-cloud-arrow-up fa-lg"></i>
+                                                <br>
+                                            </span>
+                                            <label for="file-upload"
+                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                                <span class="text-center text-sm">Upload file</span>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="relative flex items-start py-4">
                                         <div class="min-w-0 flex-1 text-sm leading-6">
                                             <label for="side-null"
-                                                class="select-none font-medium text-primary text-lg">Salary Certificate</label>
+                                                class="select-none font-medium text-primary text-lg">Salary
+                                                Certificate</label>
                                         </div>
-                                        <div class="ml-3 flex h-6 items-center">
-                                            <input id="side-null" name="plan" type="radio" checked
-                                                class="h-4 w-4 border-gray-300 text-primary focus:ring-indigo-600">
+                                        <div class="text-center">
+                                            <span class="mx-auto">
+                                                <i class="far fa-cloud-arrow-up fa-lg"></i>
+                                                <br>
+                                            </span>
+                                            <label for="file-upload"
+                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                                <span class="text-center text-sm">Upload file</span>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="relative flex items-start py-4">
                                         <div class="min-w-0 flex-1 text-sm leading-6">
-                                            <label for="side-null"
-                                                class="select-none font-medium text-primary text-lg">Bank Statement</label>
+                                            <label for="side-null" class="select-none font-medium text-primary text-lg">Bank
+                                                Statement</label>
                                         </div>
-                                        <div class="ml-3 flex h-6 items-center">
-                                            <input id="side-null" name="plan" type="radio" checked
-                                                class="h-4 w-4 border-gray-300 text-primary focus:ring-indigo-600">
+                                        <div class="text-center">
+                                            <span class="mx-auto">
+                                                <i class="far fa-cloud-arrow-up fa-lg"></i>
+                                                <br>
+                                            </span>
+                                            <label for="file-upload"
+                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                                <span class="text-center text-sm">Upload file</span>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -124,28 +139,17 @@ const getFiancialInfo = () => {
 
                         </div>
 
-                        <div class="text-center mt-5">
-                            <span class="mx-auto">
-                                <i class="far fa-cloud-arrow-up fa-2x"></i>
-                                <br>
-                            </span>
-                            <label for="file-upload"
-                                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
-                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                <span class="text-center">Upload file</span>
-                            </label>
-                            <p class="text-xs leading-5 text-gray-600">PNG, JPG or PDF</p>
-                        </div>
+                       
 
 
 
                     </div>
 
                     <div class="flex flex-col place-content-center my-10 pb-10">
-                        <button type="button"
+                        <button @click="$emit('verificationView')" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>
-                                Complete Verification 
+                                Complete Verification
                             </span>
 
                         </button>

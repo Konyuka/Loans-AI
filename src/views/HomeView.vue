@@ -20,6 +20,7 @@ import ReceivingView from "@/components/ReceivingView.vue";
 import DueView from "@/components/DueView.vue";
 
 const currentView = ref(1);
+// const currentView = ref(17);
 
 
 </script>
@@ -30,19 +31,19 @@ const currentView = ref(1);
       <SignInLanding        v-if="currentView==1"  @signInView="currentView = 2" @signUpView="currentView = 3" />
       <SignInView           v-if="currentView==2" @landingView="currentView = 1" @forgotView="currentView = 5" />
       <SignUpView           v-if="currentView==3" @signInView="currentView = 2" @digitView="currentView = 4" />
-      <DigitView            v-if="currentView==4" />
+      <DigitView            v-if="currentView==4"  @dashView="currentView = 8" />
       <ForgotView           v-if="currentView==5"  @signInView="currentView = 2" @confirmView="currentView = 7"/>
       <ResetView            v-if="currentView==6" />
       <ConfirmView          v-if="currentView==7" @signInView="currentView = 2"/>
-      <DashView             v-if="currentView==8" />
-      <IdentityView         v-if="currentView==9" />
-      <SelfieView           v-if="currentView==10" />
-      <PersonalInfoView     v-if="currentView==11" />
-      <ContactInfoView      v-if="currentView==12" />
-      <EmploymentInfoView   v-if="currentView==13" />
-      <FinancialInfoView    v-if="currentView==14" />
-   <VerificationSuccessView v-if="currentView==15" />
-      <ReceivingView        v-if="currentView==16" />
+      <DashView             v-if="currentView==8" @identityView="currentView = 9" />
+      <IdentityView         v-if="currentView==9" @dashView="currentView = 8" @selfieView="currentView = 10"/>
+      <SelfieView           v-if="currentView==10" @identityView="currentView = 9" @personalView="currentView=11"/>
+      <PersonalInfoView     v-if="currentView==11" @selfieView="currentView = 10" @contactView="currentView = 12"/>
+      <ContactInfoView      v-if="currentView==12" @personalView="currentView = 11" @employmentView="currentView = 13"/>
+      <EmploymentInfoView   v-if="currentView==13" @contactView="currentView = 12" @financialView="currentView = 14"/>
+      <FinancialInfoView    v-if="currentView==14" @employmentView="currentView = 13" @verificationView="currentView = 15"/>
+   <VerificationSuccessView v-if="currentView==15" @financialView="currentView = 14" @receivingView="currentView = 16"/>
+      <ReceivingView        v-if="currentView==16" @verificationView="currentView = 15" @dueView="currentView = 17"/>
       <DueView              v-if="currentView==17" />
     </div>
 

@@ -3,9 +3,19 @@ import { ref, computed, onMounted } from "vue";
 import { useUserData } from '@/stores/userData'
 const userData = useUserData()
 
+const emit = defineEmits([
+    'dashView'
+])
+
 const timeRemaining = ref(5);
 const timer = ref(null);
-const formattedTime = computed(()=>{
+
+const value1Data = ref(null);
+const value2Data = ref(null);
+const value3Data = ref(null);
+const value4Data = ref(null);
+
+const formattedTime = computed(() => {
     const minutes = Math.floor(timeRemaining.value / 60);
     const seconds = timeRemaining.value % 60;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -37,7 +47,23 @@ const updateTime = () => {
     }
 }
 
-onMounted(()=>{
+const focusNextInput = (inputNumber) => {
+     if (inputNumber === null) {
+        value2.focus();
+    } else if (inputNumber === 1) {
+        value2.focus();
+    } else if (inputNumber === 2) {
+        value3.focus();
+    } else if (inputNumber === 3) {
+        value4.focus();
+    }
+}
+
+const validateCode = () => {
+   emit('dashView') 
+}
+
+onMounted(() => {
     timer.value = setInterval(updateTime, 1000);
 });
 
@@ -68,15 +94,15 @@ onMounted(()=>{
                             </span>
                         </p>
                         <p v-if="timeRemaining > 0">This code wil expire in <br>
-                            <div>
-                                <span class="font-semibold">
-                                    {{ formattedTime  }}
-                                </span>
-                            </div>
+                        <div>
+                            <span class="font-semibold">
+                                {{ formattedTime }}
+                            </span>
+                        </div>
                         </p>
                     </div>
 
-                    <div v-if="timeRemaining <= 0" class="mt-5">
+                    <div v-if="timeRemaining <= 0" class="mt-10">
                         <button @click="resetTimer()" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Resend Code
@@ -84,17 +110,29 @@ onMounted(()=>{
                     </div>
 
                     <div class="grid grid-cols-4 gap-5 mt-20">
-                        <div class="flex place-content-center rounded-md bg-black bg-opacity-5 h-18 w-18">
-                            <p class="self-center text-4xl text-primary p-5">1</p>
+                        <div class="relative flex place-content-center rounded-md bg-black bg-opacity-5 h-20 w-18">
+                            <div>
+                                <input  @input="focusNextInput(1)" v-model="value1Data"  type="number" name="value1" id="value1"
+                                    class="bg-black bg-opacity-5 block w-full h-full text-center text-4xl rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                            </div>
                         </div>
-                        <div class="flex place-content-center rounded-md bg-black bg-opacity-5 h-18 w-18">
-                            <p class="self-center text-4xl text-primary p-5">8</p>
+                        <div class="flex place-content-center rounded-md bg-black bg-opacity-5 h-20 w-18">
+                            <div>
+                                <input  @input="focusNextInput(2)" v-model="value2Data" type="number" name="value2" id="value2"
+                                    class="bg-black bg-opacity-5 block w-full h-full text-center text-4xl rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                            </div>
                         </div>
-                        <div class="flex place-content-center rounded-md bg-black bg-opacity-5 h-18 w-18">
-                            <p class="self-center text-4xl text-primary p-5">2</p>
+                        <div class="flex place-content-center rounded-md bg-black bg-opacity-5 h-20 w-18">
+                            <div>
+                                <input @input="focusNextInput(3)" v-model="value3Data" type="number" name="value3" id="value3"
+                                    class="bg-black bg-opacity-5 block w-full h-full text-center text-4xl rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                            </div>
                         </div>
-                        <div class="flex place-content-center rounded-md bg-black bg-opacity-5 h-18 w-18">
-                            <p class="self-center text-4xl text-primary p-5">8</p>
+                        <div class="flex place-content-center rounded-md bg-black bg-opacity-5 h-20 w-18">
+                            <div>
+                                <input @input="validateCode()" v-model="value4Data" type="number" name="value4" id="value4"
+                                    class="bg-black bg-opacity-5 block w-full h-full text-center text-4xl rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                            </div>
                         </div>
                     </div>
                 </div>

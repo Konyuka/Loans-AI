@@ -1,5 +1,8 @@
 <script setup>
-
+const emit = defineEmits([
+    'identityView',
+    'personalView'
+]);
 
 
 </script>
@@ -16,7 +19,7 @@
 
                     <div class="flex">
                         <div class="mt-1 mr-[10vh]">
-                            <i class="fas fa-caret-left fa-xl"></i>
+                            <i @click="$emit('identityView')" class="fas fa-caret-left fa-xl"></i>
                         </div>
                         <div>
                             <h2 class="text-2xl font-semibold text-primary">Upload Selfie</h2>
@@ -79,10 +82,10 @@
                     </div>
 
                     <div class="flex flex-col place-content-center my-10">
-                        <button type="button"
+                        <button @click="$emit('personalView')" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>
-                                Next <i class="far fa-caret-right"></i>
+                                Next <i class="far fa-angle-right"></i>
                             </span>
 
                         </button>
