@@ -1,4 +1,13 @@
 <script setup>
+import { ref } from "vue";
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
+const month = ref({
+    month: new Date().getMonth(),
+    year: new Date().getFullYear()
+})
+
 const emit = defineEmits([
     'contactView',
     'selfieView'
@@ -47,20 +56,11 @@ const emit = defineEmits([
                         </div>
 
                         <div class="relative mt-2">
-                            <input id="name" name="name" type="number" autocomplete="first-name" required
-                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
-                                placeholder="Age">
-                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-watch"></i>
-                            </div>
-                        </div>
-
-                        <div class="relative mt-2">
                             <input id="name" name="name" type="text" autocomplete="first-name" required
                                 class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
-                                placeholder="First name">
+                                placeholder="Nationality">
                             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-user"></i>
+                                <i class="far fa-flag"></i>
                             </div>
                         </div>
 
@@ -83,6 +83,17 @@ const emit = defineEmits([
                             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                 <i class="far fa-users"></i>
                             </div>
+                        </div>
+
+                        <div class="relative mt-4">
+                            <!-- <input id="name" name="name" type="number" autocomplete="first-name" required
+                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
+                                placeholder="Date of birth"> -->
+                            <VueDatePicker v-model="month" month-picker placeholder="Date of birth"
+                                class="dp_theme font-sans text-center"></VueDatePicker>
+                            <!-- <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i class="far fa-watch"></i>
+                            </div> -->
                         </div>
 
 
@@ -118,4 +129,5 @@ const emit = defineEmits([
     --slider-handle-ring-color: black;
     --slider-height: 10px;
     --slider-radius: 9999px;
-}</style>
+}
+</style>

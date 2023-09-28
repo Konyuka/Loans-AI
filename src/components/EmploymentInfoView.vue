@@ -41,7 +41,7 @@ const month = ref({
                                 class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
                                 placeholder="Employer name">
                             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-user"></i>
+                                <i class="far fa-business-time"></i>
                             </div>
                         </div>
 
@@ -50,7 +50,7 @@ const month = ref({
                                 class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
                                 placeholder="Job title">
                             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-user"></i>
+                                <i class="far fa-user-doctor"></i>
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@ const month = ref({
                                 class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
                                 placeholder="Salary">
                             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-watch"></i>
+                                <i class="far fa-money-bill"></i>
                             </div>
                         </div>
 
