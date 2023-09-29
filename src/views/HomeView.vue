@@ -18,6 +18,7 @@ import FinancialInfoView from "@/components/FinancialInfoView.vue";
 import VerificationSuccessView from "@/components/VerificationSuccessView.vue";
 import ReceivingView from "@/components/ReceivingView.vue";
 import DueView from "@/components/DueView.vue";
+import PaymentView from '../components/PaymentView.vue';
 
 const currentView = ref(1);
 // const currentView = ref(17);
@@ -44,7 +45,8 @@ const currentView = ref(1);
       <FinancialInfoView    v-if="currentView==14" @employmentView="currentView = 13" @verificationView="currentView = 15"/>
    <VerificationSuccessView v-if="currentView==15" @financialView="currentView = 14" @receivingView="currentView = 16"/>
       <ReceivingView        v-if="currentView==16" @verificationView="currentView = 15" @dueView="currentView = 17"/>
-      <DueView              v-if="currentView==17" />
+      <DueView              v-if="currentView==17" @paymentView="currentView = 18" />
+      <PaymentView          v-if="currentView==18" />
     </div>
 
   </main>

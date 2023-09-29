@@ -6,6 +6,10 @@ import { computed, onMounted } from "vue";
 import { useLoanData } from '@/stores/loanData'
 const loanData = useLoanData()
 
+const emit = defineEmits([
+    'paymentView'
+]);
+
 const nextPaymentDate = computed(()=>{
     const currentDate = moment();
     const nextMonthDate = currentDate.add(1, 'months');
@@ -47,7 +51,7 @@ onMounted(() => {
                         </div>
 
                         <div>
-                            <button type="button"
+                            <button @click="$emit('paymentView')" type="button"
                                 class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                 <span>
                                     Pay now
