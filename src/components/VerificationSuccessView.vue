@@ -2,8 +2,11 @@
 import { useLoanData } from '@/stores/loanData'
 const loanData = useLoanData()
 import moment from "moment";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 
 const emit = defineEmits([
     'receivingView'
@@ -65,6 +68,11 @@ const nextPaymentDate = computed(() => {
                             <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                                 <p class="self-center text-medium tracking-widest text-sm text-gray">Next due date</p>
                                 <p class="self-center text-primary font-bold">{{ nextPaymentDate }}</p>
+                            </div>
+
+                            <div class="col-span-2 place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-gray">You will receive</p>
+                                <p class="self-center text-primary font-bold text-center text-lg">{{ (loanData.loanData.amount - loanData.loanData.processingFee) }} OMR</p>
                             </div>
 
 

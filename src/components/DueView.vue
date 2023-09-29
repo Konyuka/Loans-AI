@@ -1,7 +1,7 @@
 <script setup>
 import Footer from "@/components/Footer.vue";
 import moment from "moment";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 import { useLoanData } from '@/stores/loanData'
 const loanData = useLoanData()
@@ -13,6 +13,9 @@ const nextPaymentDate = computed(()=>{
     return formattedDate;
 });
 
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 
 </script>
 

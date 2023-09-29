@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import Slider from '@vueform/slider'
 import Footer from "@/components/Footer.vue";
 
@@ -56,6 +56,9 @@ const requestLoan = () => {
 
 };
 
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>
@@ -65,7 +68,7 @@ const requestLoan = () => {
         <div class="relative isolate px-6 pt-5 lg:px-8 w-screen">
 
 
-            <div class="h-screen flex place-content-center w-full">
+            <div class="min-h-screen flex place-content-center w-full">
                 <div class="">
                     <div data-wow-duration="1s" class="w-[91vw] flex flex-row justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
@@ -107,29 +110,34 @@ const requestLoan = () => {
                     <div class="grid grid-cols-2 gap-1 pt-5">
 
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan Amount</p>
+                            <p class="self-center text-medium text-sm text-primary-100">Loan Amount</p>
                             <p class="self-center text-primary font-bold">{{ amount }} OMR</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium tracking-widest text-sm text-gray">Loan Term</p>
+                            <p class="self-center text-medium text-sm text-primary-100">Loan Term</p>
                             <p class="self-center text-primary font-bold">{{ duration }} Month(s)</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium tracking-widest text-sm text-gray">Monthly Interest</p>
+                            <p class="self-center text-medium text-sm text-primary-100">Monthly Interest</p>
                             <p class="self-center text-primary font-bold">{{ acrruedInterest }} OMR ({{ interestRate }}%)</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium tracking-widest text-sm text-gray">Total Interest</p>
+                            <p class="self-center text-medium text-sm text-primary-100">Total Interest</p>
                             <p class="self-center text-primary font-bold">{{ totalAcrruedInterest }} OM ({{ totalInterestRate }}%)</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium tracking-widest text-sm text-gray">Processing Fee(3%)</p>
+                            <p class="self-center text-medium text-sm text-primary-100">Processing Fee(3%)</p>
                             <p class="self-center text-primary font-bold">{{ processingFee }} OMR</p>
                         </div>
 
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium tracking-widest text-sm text-gray">Late payment fee</p>
+                            <p class="self-center text-medium text-sm text-gray">Late payment fee</p>
                             <p class="self-center text-primary font-bold text-center text-sm">2% of amount due<br> weekly</p>
+                        </div>
+                        
+                        <div class="col-span-2 place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                            <p class="self-center text-medium text-sm text-gray">You will receive</p>
+                            <p class="self-center text-primary font-bold text-center text-lg">{{ (amount - processingFee) }} OMR</p>
                         </div>
 
 
@@ -146,7 +154,7 @@ const requestLoan = () => {
 
 
 
-                    <div class="flex flex-col place-content-center mb-5">
+                    <div class="flex flex-col place-content-center mb-14">
                         <button @click="requestLoan()" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>

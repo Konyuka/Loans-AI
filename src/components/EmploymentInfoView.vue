@@ -1,7 +1,7 @@
 <script setup>
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const emit = defineEmits([
     'financialView',
@@ -14,6 +14,9 @@ const month = ref({
     year: new Date().getFullYear()
 })
 
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>

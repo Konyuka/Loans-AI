@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useUserData } from '@/stores/userData'
 const userData = useUserData()
 
@@ -21,7 +21,9 @@ const signUp = () => {
     emit('digitView')
 }
 
-
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>

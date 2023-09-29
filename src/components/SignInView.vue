@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useUserData } from '@/stores/userData'
 
 const userData = useUserData()
@@ -22,6 +22,9 @@ const signIn = () => {
     userData.updateUserData(user.value);
 }
 
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>

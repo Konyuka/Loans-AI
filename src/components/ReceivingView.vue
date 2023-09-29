@@ -1,6 +1,9 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, onMounted } from "vue";
 
+onMounted(()=>{
+    window.scrollTo(0, 0);
+});
 
 const emit = defineEmits([
     'dueView'
@@ -116,7 +119,7 @@ watch(card, (newX) => {
                         </div>
 
                         <div v-if="cash" class="mt-10">
-                            <h2 class="text-lg font-medium text-black text-center">Office Location</h2>
+                            <h2 class="text-lg font-medium text-black text-center">Collect cash from our branch</h2>
 
 
 

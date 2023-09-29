@@ -6,9 +6,9 @@ const emit = defineEmits([
     'verificationView'
 ]);
 
-
-
-
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>

@@ -1,5 +1,9 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 
 const emit = defineEmits([
     'signInView',
@@ -25,7 +29,7 @@ const emit = defineEmits([
                 </div>
 
 
-                <div data-wow-duration="1s" class=" wow animate__jello flex lg:flex-1">
+                <div data-wow-duration="1s" class=" wow animate__jello flex justify-center">
                     <a href="#" class="-m-1.5 p-1.5">
                         <span class="sr-only">Simple Pay</span>
                         <img class="w-auto" src="@/assets/img/logo.png" alt="">
@@ -59,20 +63,20 @@ const emit = defineEmits([
                             </div>
                         </div>
 
-                        <div class="mt-6 grid grid-cols-4 gap-4">
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                        <div class="mt-6 flex justify-around">
+                            <a href="#" target="_blank">
                                 <img src="@/assets/img/google.svg" alt=""
                                     class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                            <a href="#" target="_blank">
                                 <img src="@/assets/img/apple.svg" alt=""
                                     class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                            <a href="#" target="_blank">
                                 <img src="@/assets/img/fb.svg" alt=""
                                     class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                            <a href="#" target="_blank">
                                 <img src="@/assets/img/twitter.svg" alt=""
                                     class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>

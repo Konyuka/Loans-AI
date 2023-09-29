@@ -1,10 +1,13 @@
 <script setup>
-
+import { onMounted } from "vue";
 const emit = defineEmits([
     'dashView',
     'selfieView'
 ]);
 
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>

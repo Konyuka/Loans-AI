@@ -65,6 +65,7 @@ const validateCode = () => {
 
 onMounted(() => {
     timer.value = setInterval(updateTime, 1000);
+    window.scrollTo(0,0);
 });
 
 </script>

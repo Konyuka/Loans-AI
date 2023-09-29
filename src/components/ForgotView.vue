@@ -1,11 +1,15 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { onMounted } from "vue";
 
 const emit = defineEmits([
     'signInView',
     'confirmView',
 ]);
 
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>

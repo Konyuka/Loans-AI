@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
@@ -13,7 +13,9 @@ const emit = defineEmits([
     'selfieView'
 ]);
 
-
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 
 <template>
