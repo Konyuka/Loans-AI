@@ -32,34 +32,8 @@ onMounted(() => {
 
                     <div class="grid grid-cols-1 gap-2 my-5">
 
-                        <div class="relative mt-2">
-                            <input id="email" name="email" type="number" autocomplete="email" required
-                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide  font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
-                                placeholder="Value of Assets">
-                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-money-bill-trend-up"></i>
-                            </div>
-                        </div>
 
-                        <div class="relative mt-2">
-                            <input id="email" name="email" type="number" autocomplete="email" required
-                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide  font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
-                                placeholder="Value of Loan or Debts">
-                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-money-check-dollar-pen"></i>
-                            </div>
-                        </div>
-
-                        <div class="relative mt-2">
-                            <input id="email" name="email" type="number" autocomplete="email" required
-                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide  font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
-                                placeholder="Monthly Expense">
-                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-money-bill-transfer"></i>
-                            </div>
-                        </div>
-
-                        <div class="mt-10">
+                        <div class="mt-5">
                             <h1 class="text-center text-2xl text-primary font-semibold">Upload documents</h1>
                             <p class="text-xs leading-5 text-gray-600 text-center">PNG, JPG or PDF</p>
                             <fieldset>
