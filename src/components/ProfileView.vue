@@ -127,6 +127,36 @@ onMounted(() => {
                                 class="dp_theme font-sans text-center"></VueDatePicker>
                         </div>
 
+                        <div class="relative mt-2 w-full">
+                            <select id="location" name="location"
+                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6">
+                                <option selected disabled>Bank</option>
+                                <option>Bank 1</option>
+                                <option>Bank 2</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i class="far fa-piggy-bank"></i>
+                            </div>
+                        </div>
+
+                        <div class="relative mt-2">
+                            <input id="name" name="name" type="text" autocomplete="first-name" required
+                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
+                                placeholder="Branch">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i class="far fa-olive-branch"></i>
+                            </div>
+                        </div>
+
+                        <div class="relative mt-2">
+                            <input id="name" name="name" type="text" autocomplete="first-name" required
+                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
+                                placeholder="Account Number">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i class="far fa-tachograph-digital"></i>
+                            </div>
+                        </div>
+
                         <div class="relative mt-2">
                             <input v-model="user.password" id="password" name="password" type="password"
                                 autocomplete="password" required
@@ -136,6 +166,7 @@ onMounted(() => {
                                 <i class="far fa-key"></i>
                             </div>
                         </div>
+
                         <div class="relative mt-2">
                             <input v-model="user.password" id="password" name="password" type="password"
                                 autocomplete="password" required
@@ -146,9 +177,11 @@ onMounted(() => {
                             </div>
                         </div>
 
+                        
+
                         <div class="mt-2">
-                            <h1 class="text-center text-xl text-primary font-semibold">Update documents</h1>
-                            <p class="text-xs leading-5 text-gray-600 text-center">PNG, JPG or PDF</p>
+                            <!-- <h1 class="text-center text-xl text-primary font-semibold">Documents</h1> -->
+                            <!-- <p class="text-xs leading-5 text-gray-600 text-center">PNG, JPG or PDF</p> -->
                             <fieldset>
                                 <div class="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
 
@@ -169,7 +202,7 @@ onMounted(() => {
                                                 <label for="file-upload"
                                                     class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
                                                     <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                    <span class="text-center text-xs">Download file</span>
+                                                    <span class="text-center text-xs">Download</span>
                                                 </label>
                                             </div>
                                             <div>
@@ -180,7 +213,7 @@ onMounted(() => {
                                                 <label for="file-upload"
                                                     class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
                                                     <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                    <span class="text-center text-xs">Upload file</span>
+                                                    <span class="text-center text-xs">Update</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -206,7 +239,7 @@ onMounted(() => {
                                                 <label for="file-upload"
                                                     class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
                                                     <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                    <span class="text-center text-xs">Download file</span>
+                                                    <span class="text-center text-xs">Download</span>
                                                 </label>
                                             </div>
                                             <div>
@@ -217,7 +250,7 @@ onMounted(() => {
                                                 <label for="file-upload"
                                                     class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
                                                     <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                    <span class="text-center text-xs">Upload file</span>
+                                                    <span class="text-center text-xs">Update</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -238,7 +271,7 @@ onMounted(() => {
                                                 <label for="file-upload"
                                                     class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
                                                     <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                    <span class="text-center text-xs">Download file</span>
+                                                    <span class="text-center text-xs">Download</span>
                                                 </label>
                                             </div>
                                             <div>
@@ -249,7 +282,7 @@ onMounted(() => {
                                                 <label for="file-upload"
                                                     class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
                                                     <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                    <span class="text-center text-xs">Upload file</span>
+                                                    <span class="text-center text-xs">Update</span>
                                                 </label>
                                             </div>
                                         </div>

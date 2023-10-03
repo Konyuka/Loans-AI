@@ -40,7 +40,7 @@ onMounted(() => {
                     <div class="grid grid-cols-2 gap-2 my-6">
 
                         <div class="grid grid-cols-1">
-                            <p class="self-center text-medium tracking-widest text-md text-gray">Payment Due</p>
+                            <p class="self-center text-medium tracking-widest text-md text-gray text-center">Payment Due</p>
                             <p class="self-center text-primary font-bold text-xl text-center">{{ loanData.loanData.amount + loanData.loanData.totalAcrruedInterest }} OMR</p>
                         </div>
 
