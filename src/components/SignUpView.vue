@@ -80,12 +80,14 @@ onMounted(() => {
                                     <option class="mr-2 bg-gray tracking-widest">+968 </option>
                                 </select>
                             </div>
-                            <input v-model="user.number" type="number" name="phone-number" id="phone-number" autocomplete="phone" required
+                            <input v-model="user.number" type="number" name="phone-number" id="phone-number"
+                                autocomplete="phone" required
                                 class=" tracking-widest block rounded-md border-0 py-5 pl-24 w-full text-gray-900 ring-1 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                                 placeholder="Phone">
                         </div>
                         <div class="relative mt-2">
-                            <input v-model="user.password" id="password" name="password" type="password" autocomplete="password" required
+                            <input v-model="user.password" id="password" name="password" type="password"
+                                autocomplete="password" required
                                 class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide  font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
                                 placeholder="Password">
                             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -131,21 +133,19 @@ onMounted(() => {
                         </div>
 
                         <div class="mt-6 grid grid-cols-4 gap-4 mb-10">
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="@/assets/img/google.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
-                            </a>
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="@/assets/img/apple.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
-                            </a>
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="@/assets/img/fb.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
-                            </a>
-                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="@/assets/img/twitter.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
+
+                            <button @click="signUp()" type="button"
+                                class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                
+                                <div>
+                                    Sign up
+                                    <img src="@/assets/img/google.svg" alt=""
+                                        class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
+                                </div>
+                            </button>
+
+                            <a href="https://www.google.com" target="_blank">
+                                
                             </a>
 
                         </div>

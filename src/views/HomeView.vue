@@ -41,7 +41,7 @@ const currentView = ref(1);
       <ForgotView           v-if="currentView==5"  @signInView="currentView = 2" @confirmView="currentView = 7"/>
       <ResetView            v-if="currentView==6" />
       <ConfirmView          v-if="currentView==7" @signInView="currentView = 2"/>
-      <DashView             v-if="currentView==8" @identityView="currentView = 9" />
+      <DashView             v-if="currentView==8" @identityView="currentView = 9"  @profileView="currentView = 22" @notificationView="currentView = 23"/>
       <DashPendingView      v-if="currentView==21" @identityView="currentView = 9" @receivingView="currentView = 16" />
       <IdentityView         v-if="currentView==9" @dashView="currentView = 8" @selfieView="currentView = 10"/>
       <SelfieView           v-if="currentView==10" @identityView="currentView = 9" @personalView="currentView=11"/>

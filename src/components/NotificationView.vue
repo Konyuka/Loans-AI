@@ -33,21 +33,8 @@ onMounted(() => {
                         </div>
 
                     <ul role="list" class="divide-y divide-gray-100">
-                        <li class="flex justify-between gap-x-6 py-5">
-                            <div class="flex min-w-0 gap-x-4">
-                                <div class="min-w-0 flex-auto">
-                                    <p class="text-sm font-semibold leading-6 text-gray-900"></p>
-                                    <p class="mt-1 truncate text-xs leading-5 text-gray-500">
-                                        Following the previous release, we wish to inform you
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="shrink-0 sm:flex sm:flex-col sm:items-end">
-                                <p class="mt-1 text-xs leading-5 text-gray-500"> <time
-                                        datetime="2023-01-23T13:23Z">4d ago</time></p>
-                            </div>
-                        </li>
-                        <li class="flex justify-between gap-x-6 py-5">
+                        
+                        <li class="flex justify-between gap-x-6 py-5 px-3">
                             <div class="flex min-w-0 gap-x-4">
                                 <div class="min-w-0 flex-auto">
                                     <p class="text-sm font-semibold leading-6 text-gray-900">Loan Payment Remider 1</p>
@@ -61,7 +48,7 @@ onMounted(() => {
                                         datetime="2023-01-23T13:23Z">4d ago</time></p>
                             </div>
                         </li>
-                        <li class="flex justify-between gap-x-6 py-5">
+                        <li class="flex justify-between gap-x-6 py-5 px-3">
                             <div class="flex min-w-0 gap-x-4">
                                 <div class="min-w-0 flex-auto">
                                     <p class="text-sm font-semibold leading-6 text-gray-900">Loan Payment Remider 2</p>

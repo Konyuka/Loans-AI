@@ -6,7 +6,7 @@
 <template>
     <div>
         <div data-wow-duration="1s" class="w-[90vw] flex flex-row justify-between">
-            <a href="#" class="-m-1.5 p-1.5">
+            <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Simple Pay</span>
                 <img class="h-10 w-auto" src="@/assets/img/logo.png" alt="">
             </a>

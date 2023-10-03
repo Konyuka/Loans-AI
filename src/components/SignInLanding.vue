@@ -64,22 +64,16 @@ const emit = defineEmits([
                         </div>
 
                         <div class="mt-6 flex justify-around">
-                            <a href="#" target="_blank">
-                                <img src="@/assets/img/google.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
-                            </a>
-                            <a href="#" target="_blank">
-                                <img src="@/assets/img/apple.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
-                            </a>
-                            <a href="#" target="_blank">
-                                <img src="@/assets/img/fb.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
-                            </a>
-                            <a href="#" target="_blank">
-                                <img src="@/assets/img/twitter.svg" alt=""
-                                    class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
-                            </a>
+
+                            <button @click="signUp()" type="button"
+                                class="text-center w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+
+                                <div class="flex justify-around w-full">
+                                   
+                                    <img src="@/assets/img/google.svg" alt=""
+                                        class="h-7 w-8">
+                                </div>
+                            </button>
 
                         </div>
                     </div>
