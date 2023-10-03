@@ -17,18 +17,26 @@
         <div class="min-h-[70vh] my-6 place-content-center flex">
             <p class="self-center text-center text-black">
                 We have received your submission. <br>
-                Please check your dashboard to check the status of your loan application <br>
-                once approved, you will be able to receive your funds
+                Please check your dashboard to check the status of your loan application. <br>
+                Once approved, you will be able to receive your funds.
             </p>
         </div>
 
 
 
         <div class="flex flex-col place-content-center my-10 pb-10">
+            <button @click="$emit('dashViewPending')" type="button"
+                class="mb-5 w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <span>
+                    Pending Status Dashboard
+                </span>
+
+            </button>
+
             <button @click="$emit('dashView')" type="button"
                 class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 <span>
-                    Dashboard
+                    If Loan Approved
                 </span>
 
             </button>

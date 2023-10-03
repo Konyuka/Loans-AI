@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Footer from "@/components/Footer.vue";
+import Nav from "./Nav.vue";
+
 
 const emit = defineEmits([
     'identityView'
@@ -23,51 +25,61 @@ onMounted(() => {
 
             <div class="min-h-screen flex place-content-center w-full">
                 <div class="">
-                    <div data-wow-duration="1s" class="w-[91vw] flex flex-row justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Simple Pay</span>
-                            <img class="h-10 w-auto" src="@/assets/img/logo.png" alt="">
-                        </a>
-                        <div class="">
-                            <i class="fas fa-bell fa-xl text-primary mr-7"></i>
-                            <i class="fas fa-user fa-xl text-primary"></i>
-                        </div>
-                    </div>
+                    <Nav @notificationView="$emit('notificationView')" @profileView="$emit('profileView')" />
 
-                    <div class="mt-5 grid grid-cols-1 gap-2">
-                        <div class="relative  h-10 bg-primary rounded-lg text-white">
-                            <p class="text-center pt-2">
-                                First Notification....
-                            </p>
+                    
+                        <div class="mt-2 text-center">
+                            <h2 class="text-xl font-semibold text-primary">Notifications</h2>
                         </div>
-                        <div class="relative  h-10 bg-primary rounded-lg text-white">
-                            <p class="text-center pt-2">
-                                First Notification....
-                            </p>
-                        </div>
-                        <div class="relative  h-10 bg-primary rounded-lg text-white">
-                            <p class="text-center pt-2">
-                                First Notification....
-                            </p>
-                        </div>
-                        <div class="relative  h-10 bg-primary rounded-lg text-white">
-                            <p class="text-center pt-2">
-                                First Notification....
-                            </p>
-                        </div>
-                        <div class="relative  h-10 bg-primary rounded-lg text-white">
-                            <p class="text-center pt-2">
-                                First Notification....
-                            </p>
-                        </div>
-                        <div class="relative  h-10 bg-primary rounded-lg text-white">
-                            <p class="text-center pt-2">
-                                First Notification....
-                            </p>
-                        </div>
-                    </div>
 
-        
+                    <ul role="list" class="divide-y divide-gray-100">
+                        <li class="flex justify-between gap-x-6 py-5">
+                            <div class="flex min-w-0 gap-x-4">
+                                <div class="min-w-0 flex-auto">
+                                    <p class="text-sm font-semibold leading-6 text-gray-900">Feature Update</p>
+                                    <p class="mt-1 truncate text-xs leading-5 text-gray-500">
+                                        Following the previous release, we wish to inform you
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shrink-0 sm:flex sm:flex-col sm:items-end">
+                                <p class="mt-1 text-xs leading-5 text-gray-500"> <time
+                                        datetime="2023-01-23T13:23Z">4d ago</time></p>
+                            </div>
+                        </li>
+                        <li class="flex justify-between gap-x-6 py-5">
+                            <div class="flex min-w-0 gap-x-4">
+                                <div class="min-w-0 flex-auto">
+                                    <p class="text-sm font-semibold leading-6 text-gray-900">Feature Update</p>
+                                    <p class="mt-1 truncate text-xs leading-5 text-gray-500">
+                                        Following the previous release, we wish to inform you
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shrink-0 sm:flex sm:flex-col sm:items-end">
+                                <p class="mt-1 text-xs leading-5 text-gray-500"> <time
+                                        datetime="2023-01-23T13:23Z">4d ago</time></p>
+                            </div>
+                        </li>
+                        <li class="flex justify-between gap-x-6 py-5">
+                            <div class="flex min-w-0 gap-x-4">
+                                <div class="min-w-0 flex-auto">
+                                    <p class="text-sm font-semibold leading-6 text-gray-900">Feature Update</p>
+                                    <p class="mt-1 truncate text-xs leading-5 text-gray-500">
+                                        Following the previous release, we wish to inform you
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="shrink-0 sm:flex sm:flex-col sm:items-end">
+                                <p class="mt-1 text-xs leading-5 text-gray-500"> <time
+                                        datetime="2023-01-23T13:23Z">4d ago</time></p>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+
 
                 </div>
             </div>

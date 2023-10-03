@@ -146,6 +146,14 @@ onMounted(() => {
                             </span>
 
                         </button>
+
+                        <button @click="$emit('receivingView')" type="button"
+                            class="mt-2 w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <span>
+                                Receive Funds
+                            </span>
+
+                        </button>
                     </div>
 
                 </div>

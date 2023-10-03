@@ -25,7 +25,7 @@ import ApprovalView from '../components/ApprovalView.vue';
 import ProfileView from '../components/ProfileView.vue';
 import NotificationView from '../components/NotificationView.vue';
 
-const currentView = ref(1);
+const currentView = ref(22);
 // const currentView = ref(17);
 
 
@@ -33,7 +33,7 @@ const currentView = ref(1);
 
 <template>
   <main>
-    <div class="bg-slate bg-opacity-50 h-screen flex w-screen">
+    <div class="bg-slate bg-opacity-50 h-screen flex w-[100vw]">
       <SignInLanding        v-if="currentView==1"  @signInView="currentView = 2" @signUpView="currentView = 3" />
       <SignInView           v-if="currentView==2" @landingView="currentView = 1" @forgotView="currentView = 5" />
       <SignUpView           v-if="currentView==3" @signInView="currentView = 2" @digitView="currentView = 4" />
@@ -42,7 +42,7 @@ const currentView = ref(1);
       <ResetView            v-if="currentView==6" />
       <ConfirmView          v-if="currentView==7" @signInView="currentView = 2"/>
       <DashView             v-if="currentView==8" @identityView="currentView = 9" />
-      <DashPendingView           v-if="currentView==21" @identityView="currentView = 9" />
+      <DashPendingView      v-if="currentView==21" @identityView="currentView = 9" @receivingView="currentView = 16" />
       <IdentityView         v-if="currentView==9" @dashView="currentView = 8" @selfieView="currentView = 10"/>
       <SelfieView           v-if="currentView==10" @identityView="currentView = 9" @personalView="currentView=11"/>
       <PersonalInfoView     v-if="currentView==11" @selfieView="currentView = 10" @contactView="currentView = 13"/>
@@ -52,11 +52,11 @@ const currentView = ref(1);
       <VerificationSuccessView v-if="currentView==15" @financialView="currentView = 14" @receivingView="currentView = 16"/>
       <ReceivingView        v-if="currentView==16" @verificationView="currentView = 15" @dueView="currentView = 17"/>
       <DebitView            v-if="currentView==19" @pendingView="currentView = 20" @approvalView="currentView = 20"/>
-      <DueView              v-if="currentView==17" @paymentView="currentView = 18" />
+      <DueView              v-if="currentView==17" @paymentView="currentView = 18" @profileView="currentView = 22" @notificationView="currentView = 23" />
       <PaymentView          v-if="currentView==18" />
-      <ApprovalView         v-if="currentView==20" @employmentView="currentView = 13" @dashView="currentView = 21"/>
-      <ProfileView          v-if="currentView == 22"/>
-      <NotificationView     v-if="currentView == 23"/>
+      <ApprovalView         v-if="currentView==20" @employmentView="currentView = 13" @dashViewPending="currentView = 21" @dashView="currentView = 16"/>
+      <ProfileView          v-if="currentView == 22" @profileView="currentView = 22" @notificationView="currentView = 23"/>
+      <NotificationView     v-if="currentView == 23" @profileView="currentView = 22" @notificationView="currentView = 23"/>
     </div>
 
     
