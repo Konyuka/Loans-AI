@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch, onMounted } from "vue";
 
-onMounted(()=>{
+onMounted(() => {
     window.scrollTo(0, 0);
 });
 
@@ -11,14 +11,25 @@ const emit = defineEmits([
 
 const cash = ref(false)
 const card = ref(false)
+const bank = ref(false)
+
 watch(cash, (newX) => {
     if (newX == true) {
         card.value = false;
+        bank.value = false;
     }
 });
 watch(card, (newX) => {
     if (newX == true) {
         cash.value = false;
+        bank.value = false;
+    }
+});
+
+watch(bank, (newX) => {
+    if (newX == true) {
+        cash.value = false;
+        card.value = false;
     }
 });
 
@@ -56,6 +67,17 @@ watch(card, (newX) => {
                                         </div>
                                         <div class="ml-3 flex h-6 items-center">
                                             <input v-model="card" id="comments" aria-describedby="comments-description"
+                                                name="comments" type="checkbox"
+                                                class="h-4 w-4 rounded border-black text-primary focus:ring-primary">
+                                        </div>
+                                    </div>
+                                    <div class="relative flex items-start py-4">
+                                        <div class="min-w-0 flex-1 text-sm leading-6">
+                                            <label for="side-null"
+                                                class="select-none font-medium text-primary text-lg">Bank</label>
+                                        </div>
+                                        <div class="ml-3 flex h-6 items-center">
+                                            <input v-model="bank" id="comments" aria-describedby="comments-description"
                                                 name="comments" type="checkbox"
                                                 class="h-4 w-4 rounded border-black text-primary focus:ring-primary">
                                         </div>
@@ -118,6 +140,79 @@ watch(card, (newX) => {
                             </div>
                         </div>
 
+                        <div v-if="bank" class="mt-10">
+                            <h2 class="text-lg font-medium text-gray-900 text-center">Bank Details</h2>
+
+
+
+                            <div class="mt-6 grid grid-cols-4 gap-x-4 gap-y-6">
+                                <div class="col-span-4">
+                                    <label for="card-number" class="block text-sm font-medium text-gray-700">
+                                        Account Name
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" id="card-number" name="card-number" autocomplete="cc-number"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="name-on-card" class="block text-sm font-medium text-gray-700">
+                                        Account Number
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="number" id="name-on-card" name="name-on-card" autocomplete="cc-name"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="name-on-card" class="block text-sm font-medium text-gray-700">
+                                        Bank Name
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="location" name="location"
+                                            class="px-2 block w-full rounded-md border-gray-300 bg-white py-3 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6">
+                                            <option selected disabled></option>
+                                            <option>Bank 1</option>
+                                            <option>Bank 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="card-number" class="block text-sm font-medium text-gray-700">
+                                        Bank Branch
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" id="card-number" name="card-number" autocomplete="cc-number"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="card-number" class="block text-sm font-medium text-gray-700">
+                                        Bank Address
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" id="card-number" name="card-number" autocomplete="cc-number"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-span-4">
+                                    <label for="name-on-card" class="block text-sm font-medium text-gray-700">
+                                        Bank SWIFT/BIC Code
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="number" id="name-on-card" name="name-on-card" autocomplete="cc-name"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div v-if="cash" class="mt-10">
                             <h2 class="text-lg font-medium text-black text-center">Collect cash from our branch</h2>
 
@@ -129,14 +224,15 @@ watch(card, (newX) => {
                                         <div
                                             class="mx-auto grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
                                             <div>
-                                                <h3 class="border-l border-indigo-600 pl-6 font-semibold text-gray-900">Muscat</h3>
+                                                <h3 class="border-l border-indigo-600 pl-6 font-semibold text-gray-900">
+                                                    Muscat</h3>
                                                 <address
                                                     class="border-l border-gray-200 pl-6 pt-2 not-italic text-gray-600">
                                                     <p>4556 Brendan Ferry</p>
                                                     <p>Muscat, CA 90210</p>
                                                 </address>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +258,7 @@ watch(card, (newX) => {
 
                     </div>
 
-                    <div v-if="cash != false || card != false" class="flex flex-col place-content-center my-10 pb-10">
+                    <div v-if="cash != false || card != false || bank != false" class="flex flex-col place-content-center my-10 pb-10">
                         <button @click="$emit('dueView')" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>
@@ -185,10 +281,12 @@ watch(card, (newX) => {
 
 <style src="@vueform/slider/themes/default.css"></style>
 
-<style scoped>.slider-red {
+<style scoped>
+.slider-red {
     --slider-connect-bg: #292561;
     --slider-tooltip-bg: #292561;
     --slider-handle-ring-color: black;
     --slider-height: 10px;
     --slider-radius: 9999px;
-}</style>
+}
+</style>

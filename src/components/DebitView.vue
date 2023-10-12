@@ -61,9 +61,10 @@ const emit = defineEmits([
                 <input id="remember-me" name="remember-me" type="checkbox" required
                     class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary">
                 <label for="remember-me" class="ml-3 block text-xs leading-6 text-gray-900">
-                    I [name] hereby declare that i am the holder of [bank_account_input] at [bank select] [bank branch] . I
-                    hereby authorize [bank] to periodically debit my account every [loan duration/installment] and pay
-                    Simple Pay Capital Limited the amount of [loan amount].
+                    I [name] hereby declare that i am the holder of [bank_account_input] at [bank select] [bank branch] . <br>
+                    I hereby authorize [bank] to periodically debit my account every [loan duration/installment] and pay
+                    Simple Pay Capital Limited the amount of [loan amount]. <br>
+                    I also acknowledge that this authorization can only be cancelled by Simple Pay Capital Limited
                 </label>
             </div>
 

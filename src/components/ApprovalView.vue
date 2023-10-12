@@ -28,18 +28,18 @@
             <button @click="$emit('dashViewPending')" type="button"
                 class="mb-5 w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 <span>
-                    Pending Status Dashboard
+                    Proceed
                 </span>
 
             </button>
 
-            <button @click="$emit('dashView')" type="button"
+            <!-- <button @click="$emit('dashView')" type="button"
                 class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 <span>
                     If Loan Approved
                 </span>
 
-            </button>
+            </button> -->
         </div>
     </div>
 </template>

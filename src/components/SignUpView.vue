@@ -122,31 +122,26 @@ onMounted(() => {
                             here</button>
                     </p>
 
-                    <div class="mt-5">
+                    <div class="mt-5 mb-10">
                         <div class="relative">
                             <div class="absolute inset-0 flex items-center" aria-hidden="true">
                                 <div class="w-full border-t border-gray-200"></div>
                             </div>
                             <div class="relative flex justify-center text-sm font-medium leading-6">
-                                <span class="bg-white px-6 text-gray-900">Or sign in with</span>
+                                <span class="bg-slate px-6 text-gray-900">Or sign in with</span>
                             </div>
                         </div>
 
-                        <div class="mt-6 grid grid-cols-4 gap-4 mb-10">
+                        <div class="mt-6 flex justify-around">
 
                             <button @click="signUp()" type="button"
-                                class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                
-                                <div>
-                                    Sign up
-                                    <img src="@/assets/img/google.svg" alt=""
-                                        class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
+                                class="text-center w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+
+                                <div class="flex justify-around w-full">
+
+                                    <img src="@/assets/img/google.svg" alt="" class="h-7 w-8">
                                 </div>
                             </button>
-
-                            <a href="https://www.google.com" target="_blank">
-                                
-                            </a>
 
                         </div>
                     </div>

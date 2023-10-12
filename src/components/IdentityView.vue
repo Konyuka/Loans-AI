@@ -83,25 +83,6 @@ onMounted(() => {
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="relative flex items-start py-4">
-                                        <div class="min-w-0 flex-1 text-sm leading-6">
-                                            <label for="side-null"
-                                                class="select-none font-medium text-primary text-lg">Driving License</label>
-                                        </div>
-                                        <div class="text-center">
-                                            <span class="mx-auto">
-                                                <i class="far fa-cloud-arrow-up fa-lg"></i>
-                                                <br>
-                                            </span>
-                                            <label for="file-upload"
-                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-primary">
-                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                <span class="text-center text-sm">Upload file</span>
-                                            </label>
-                                        </div>
-                                    </div>
-
-
 
                                 </div>
                             </fieldset>

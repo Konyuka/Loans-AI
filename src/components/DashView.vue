@@ -31,7 +31,7 @@ const acrruedInterest = computed(() => {
 });
 
 const processingFee = computed(() => {
-    return Math.round(0.03 * amount.value); 
+    return Math.round(0.015 * amount.value); 
 });
 
 const receivingAmount = computed(() => {
@@ -111,14 +111,14 @@ onMounted(() => {
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                             <p class="self-center text-medium text-sm text-primary-100">Monthly Interest</p>
-                            <p class="self-center text-primary font-bold">{{ acrruedInterest }} OMR ({{ interestRate }}%)</p>
+                            <p class="self-center text-primary font-bold">{{ acrruedInterest }} OMR</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                             <p class="self-center text-medium text-sm text-primary-100">Total Interest</p>
-                            <p class="self-center text-primary font-bold">{{ totalAcrruedInterest }} OM ({{ totalInterestRate }}%)</p>
+                            <p class="self-center text-primary font-bold">{{ totalAcrruedInterest }} OMR</p>
                         </div>
                         <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-primary-100">Processing Fee(3%)</p>
+                            <p class="self-center text-medium text-sm text-primary-100">Processing Fee(1.5%)</p>
                             <p class="self-center text-primary font-bold">{{ processingFee }} OMR</p>
                         </div>
 

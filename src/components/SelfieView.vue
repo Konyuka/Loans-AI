@@ -52,7 +52,7 @@ const emit = defineEmits([
                             
 
                         <div class="mt-2">
-                            <img src="https://coinzodiac.com/wp-content/uploads/2018/06/elena.gif" alt="">
+                            <img src="@/assets/img/omani.jpeg" alt="">
                             
 
                         </div>
