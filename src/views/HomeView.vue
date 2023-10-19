@@ -25,7 +25,7 @@ import ApprovalView from '../components/ApprovalView.vue';
 import ProfileView from '../components/ProfileView.vue';
 import NotificationView from '../components/NotificationView.vue';
 
-const currentView = ref(22);
+const currentView = ref(1);
 // const currentView = ref(18);
 
 
