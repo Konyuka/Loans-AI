@@ -134,7 +134,7 @@ onMounted(() => {
                         </div>
 
                         <div class="relative mt-5">
-                            <VueDatePicker v-model="month" month-picker placeholder="Contract end date"
+                            <VueDatePicker month-picker placeholder="Contract end date"
                                 class="dp_theme font-sans text-center"></VueDatePicker>
                         </div>
 

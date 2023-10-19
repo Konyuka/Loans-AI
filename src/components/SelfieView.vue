@@ -41,7 +41,7 @@ const emit = defineEmits([
                             </span>
 
                             <span class="text-xs">
-                                <i class="far fa-arrow-right"></i> Your government-issued photo ID such as your national identity card or passport.
+                                <i class="far fa-arrow-right"></i> Your government-issued ID such as your national identity card or passport.
                                 Note that non-Omani customers may need to use their labour card or passport for level 1
                                 verification. <br>
                                 
