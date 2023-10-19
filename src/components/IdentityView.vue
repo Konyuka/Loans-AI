@@ -45,7 +45,7 @@ onMounted(() => {
                                     <div class="relative flex items-start py-4">
                                         <div class="min-w-0 flex-1 text-sm leading-6">
                                             <label for="side-null"
-                                                class="select-none font-medium text-primary text-lg">Identity card</label>
+                                                class="select-none font-medium text-primary text-lg">ID/Labour Card</label>
                                         </div>
 
                                         <div class="text-center">
@@ -69,7 +69,7 @@ onMounted(() => {
                                     <div class="relative flex items-start py-4">
                                         <div class="min-w-0 flex-1 text-sm leading-6">
                                             <label for="side-null"
-                                                class="select-none font-medium text-primary text-lg">Passport</label>
+                                                class="select-none font-medium text-primary text-lg">Passport <br> <span class="text-xs">(For non-Omanis)</span> </label>
                                         </div>
                                         <div class="text-center">
                                             <span class="mx-auto">

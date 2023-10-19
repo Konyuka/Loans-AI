@@ -41,8 +41,8 @@ const emit = defineEmits([
                             </span>
 
                             <span class="text-xs">
-                                <i class="far fa-arrow-right"></i> Your government-issued photo ID such as your passport or driver’s license.
-                                Note that US customers may only use a driver’s license or non-driver’s ID card for level 1
+                                <i class="far fa-arrow-right"></i> Your government-issued photo ID such as your national identity card or passport.
+                                Note that non-Omani customers may need to use their labour card or passport for level 1
                                 verification. <br>
                                 
                                 <i class="far fa-arrow-right"></i> A piece of paper on which you’ve handwritten <br>

@@ -10,14 +10,24 @@ const emit = defineEmits([
 
 const cash = ref(false)
 const card = ref(false)
+const bank = ref(false)
 watch(cash, (newX) => {
     if (newX == true) {
         card.value = false;
+        bank.value = false;
     }
 });
 watch(card, (newX) => {
     if (newX == true) {
         cash.value = false;
+        bank.value = false;
+    }
+});
+
+watch(bank, (newX) => {
+    if (newX == true) {
+        cash.value = false;
+        card.value = false;
     }
 });
 
@@ -67,6 +77,17 @@ onMounted(() => {
                                         </div>
                                         <div class="ml-3 flex h-6 items-center">
                                             <input v-model="card" id="comments" aria-describedby="comments-description"
+                                                name="comments" type="checkbox"
+                                                class="h-4 w-4 rounded border-black text-primary focus:ring-primary">
+                                        </div>
+                                    </div>
+                                    <div class="relative flex items-start py-4">
+                                        <div class="min-w-0 flex-1 text-sm leading-6">
+                                            <label for="side-null"
+                                                class="select-none font-medium text-primary text-lg">Bank</label>
+                                        </div>
+                                        <div class="ml-3 flex h-6 items-center">
+                                            <input v-model="bank" id="comments" aria-describedby="comments-description"
                                                 name="comments" type="checkbox"
                                                 class="h-4 w-4 rounded border-black text-primary focus:ring-primary">
                                         </div>
@@ -139,6 +160,79 @@ onMounted(() => {
                             </div>
                         </div>
 
+                        <div v-if="bank" class="mt-10">
+                            <h2 class="text-lg font-medium text-gray-900 text-center">Bank Details</h2>
+
+
+
+                            <div class="mt-6 grid grid-cols-4 gap-x-4 gap-y-6">
+                                <div class="col-span-4">
+                                    <label for="card-number" class="block text-sm font-medium text-gray-700">
+                                        Account Name
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" id="card-number" name="card-number" autocomplete="cc-number"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="name-on-card" class="block text-sm font-medium text-gray-700">
+                                        Account Number
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="number" id="name-on-card" name="name-on-card" autocomplete="cc-name"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="name-on-card" class="block text-sm font-medium text-gray-700">
+                                        Bank Name
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="location" name="location"
+                                            class="px-2 block w-full rounded-md border-gray-300 bg-white py-3 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6">
+                                            <option selected disabled></option>
+                                            <option>Bank 1</option>
+                                            <option>Bank 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="card-number" class="block text-sm font-medium text-gray-700">
+                                        Bank Branch
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" id="card-number" name="card-number" autocomplete="cc-number"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <label for="card-number" class="block text-sm font-medium text-gray-700">
+                                        Bank Address
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" id="card-number" name="card-number" autocomplete="cc-number"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-span-4">
+                                    <label for="name-on-card" class="block text-sm font-medium text-gray-700">
+                                        Bank SWIFT/BIC Code
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="number" id="name-on-card" name="name-on-card" autocomplete="cc-name"
+                                            class="block w-full rounded-md border-gray-300 shadow-xl focus:border-primary focus:ring-black sm:text-sm">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div v-if="cash" class="mt-10">
                             <h2 class="text-lg font-medium text-black text-center">Make your cash payment at our branch</h2>
 
@@ -184,7 +278,7 @@ onMounted(() => {
 
                     </div>
 
-                    <div v-if="cash != false || card != false" class="flex flex-col place-content-center my-10 pb-10">
+                    <div v-if="cash != false || card != false || bank != false" class="flex flex-col place-content-center my-10 pb-10">
                         <button @click="$emit('dueView')" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>

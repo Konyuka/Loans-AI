@@ -252,10 +252,6 @@ watch(bank, (newX) => {
 
 
 
-
-
-
-
                     </div>
 
                     <div v-if="cash != false || card != false || bank != false" class="flex flex-col place-content-center my-10 pb-10">

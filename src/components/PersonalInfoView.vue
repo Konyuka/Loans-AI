@@ -71,14 +71,8 @@ onMounted(() => {
                         </div>
 
                         <div class="relative mt-4">
-                            <!-- <input id="name" name="name" type="number" autocomplete="first-name" required
-                                class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white sm:text-sm sm:leading-6 focus:ring-primary"
-                                placeholder="Date of birth"> -->
-                            <VueDatePicker v-model="month" month-picker placeholder="Date of birth"
+                            <VueDatePicker month-picker placeholder="Date of birth"
                                 class="dp_theme font-sans text-center"></VueDatePicker>
-                            <!-- <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="far fa-watch"></i>
-                            </div> -->
                         </div>
 
 

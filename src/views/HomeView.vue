@@ -25,8 +25,8 @@ import ApprovalView from '../components/ApprovalView.vue';
 import ProfileView from '../components/ProfileView.vue';
 import NotificationView from '../components/NotificationView.vue';
 
-const currentView = ref(1);
-// const currentView = ref(17);
+const currentView = ref(22);
+// const currentView = ref(18);
 
 
 </script>
@@ -58,9 +58,6 @@ const currentView = ref(1);
       <ProfileView          v-if="currentView == 22" @profileView="currentView = 22" @notificationView="currentView = 23"/>
       <NotificationView     v-if="currentView == 23" @profileView="currentView = 22" @notificationView="currentView = 23"/>
     </div>
-
-    
-
   </main>
 </template>
 

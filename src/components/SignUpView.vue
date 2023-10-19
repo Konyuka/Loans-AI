@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useUserData } from '@/stores/userData'
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 const userData = useUserData()
 
 const emit = defineEmits([
@@ -85,6 +88,11 @@ onMounted(() => {
                                 class=" tracking-widest block rounded-md border-0 py-5 pl-24 w-full text-gray-900 ring-1 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                                 placeholder="Phone">
                         </div>
+                        <div class="relative mt-4">
+                            <VueDatePicker month-picker placeholder="Date of birth"
+                                class="dp_theme font-sans text-center">
+                            </VueDatePicker>
+                        </div>
                         <div class="relative mt-2">
                             <input v-model="user.password" id="password" name="password" type="password"
                                 autocomplete="password" required
@@ -155,4 +163,6 @@ onMounted(() => {
     </main>
 </template>
 
-<style></style>
+<style scoped>
+
+</style>

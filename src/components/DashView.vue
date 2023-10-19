@@ -76,6 +76,7 @@ onMounted(() => {
                     <div class="grid grid-cols-1 gap-20 my-10 mx-2">
 
                         <div class="relative">
+                            <h1 class="mb-8 tracking-widest text-xl font-medium text-center">Loan Amount</h1>
                             <Slider v-model="amount" :min="20" :max="200" :step="10" class="slider-red" />
 
                             <div class="absolute grid grid-cols-3 w-full mt-2">
@@ -87,6 +88,7 @@ onMounted(() => {
                         </div>
 
                         <div class="relative">
+                            <h1 class="mb-8 tracking-widest text-xl font-medium text-center">Loan Duration</h1>
                             <Slider v-model="duration" :min="1" :max="3" :step="1" class="slider-red" />
 
                             <div class="absolute grid grid-cols-3 w-full mt-2">
@@ -99,41 +101,46 @@ onMounted(() => {
 
                     </div>
 
-                    <div class="grid grid-cols-2 gap-1 pt-5">
-
-                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-primary-100">Loan Amount</p>
-                            <p class="self-center text-primary font-bold">{{ amount }} OMR</p>
+                    <div class="pt-10">
+                        <h1 class="mb-8 tracking-widest text-xl font-medium text-center">Loan Summary</h1>
+                        <div class="grid grid-cols-2 gap-1">
+    
+                            <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-primary-100">Loan Amount</p>
+                                <p class="self-center text-primary font-bold">{{ amount }} OMR</p>
+                            </div>
+                            <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-primary-100">Loan Term</p>
+                                <p class="self-center text-primary font-bold">{{ duration }} Month(s)</p>
+                            </div>
+                            <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-primary-100">Monthly Interest</p>
+                                <p class="self-center text-primary font-bold">{{ acrruedInterest }} OMR</p>
+                            </div>
+                            <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-primary-100">Total Interest</p>
+                                <p class="self-center text-primary font-bold">{{ totalAcrruedInterest }} OMR</p>
+                            </div>
+                            <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-primary-100">Processing Fee(1.5%)</p>
+                                <p class="self-center text-primary font-bold">{{ processingFee }} OMR</p>
+                            </div>
+    
+                            <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-gray">Late payment fee</p>
+                                <p class="self-center text-primary font-bold text-center text-sm">2% of amount due<br> weekly</p>
+                            </div>
+                            
+                            <div class="col-span-2 place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                <p class="self-center text-medium text-sm text-gray">You will receive</p>
+                                <p class="self-center text-primary font-bold text-center text-lg">{{ (amount - processingFee) }} OMR</p>
+                            </div>
+    
+    
                         </div>
-                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-primary-100">Loan Term</p>
-                            <p class="self-center text-primary font-bold">{{ duration }} Month(s)</p>
-                        </div>
-                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-primary-100">Monthly Interest</p>
-                            <p class="self-center text-primary font-bold">{{ acrruedInterest }} OMR</p>
-                        </div>
-                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-primary-100">Total Interest</p>
-                            <p class="self-center text-primary font-bold">{{ totalAcrruedInterest }} OMR</p>
-                        </div>
-                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-primary-100">Processing Fee(1.5%)</p>
-                            <p class="self-center text-primary font-bold">{{ processingFee }} OMR</p>
-                        </div>
-
-                        <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-gray">Late payment fee</p>
-                            <p class="self-center text-primary font-bold text-center text-sm">2% of amount due<br> weekly</p>
-                        </div>
-                        
-                        <div class="col-span-2 place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                            <p class="self-center text-medium text-sm text-gray">You will receive</p>
-                            <p class="self-center text-primary font-bold text-center text-lg">{{ (amount - processingFee) }} OMR</p>
-                        </div>
-
-
                     </div>
+
+                    
 
                     <div class="flex items-center py-5">
                         <input id="remember-me" name="remember-me" type="checkbox" required
