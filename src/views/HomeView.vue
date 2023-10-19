@@ -26,9 +26,18 @@ import ProfileView from '../components/ProfileView.vue';
 import NotificationView from '../components/NotificationView.vue';
 
 const currentView = ref(1);
-// const currentView = ref(18);
 
+const cashApplication = ref(false)
 
+const processVerification = (noDocs) => {
+  console.log(noDocs)
+  if(noDocs!=undefined){
+    currentView.value = 16
+    cashApplication.value = true
+  }else{
+    currentView.value = 19
+  }
+}
 </script>
 
 <template>
@@ -48,9 +57,9 @@ const currentView = ref(1);
       <PersonalInfoView     v-if="currentView==11" @selfieView="currentView = 10" @contactView="currentView = 13"/>
       <ContactInfoView      v-if="currentView==12" @personalView="currentView = 11" @employmentView="currentView = 13"/>
       <EmploymentInfoView   v-if="currentView==13" @contactView="currentView = 11" @financialView="currentView = 14"/>
-      <FinancialInfoView    v-if="currentView==14" @employmentView="currentView = 13" @verificationView="currentView = 19"/>
+      <FinancialInfoView    v-if="currentView==14" @employmentView="currentView = 13" @verificationView="processVerification"/>
       <VerificationSuccessView v-if="currentView==15" @financialView="currentView = 14" @receivingView="currentView = 16"/>
-      <ReceivingView        v-if="currentView==16" @verificationView="currentView = 15" @dueView="currentView = 17"/>
+      <ReceivingView        v-if="currentView==16" @verificationView="currentView = 15" @dueView="currentView = 17" :cashApplication="cashApplication"/>
       <DebitView            v-if="currentView==19" @pendingView="currentView = 20" @approvalView="currentView = 20"/>
       <DueView              v-if="currentView==17" @paymentView="currentView = 18" @profileView="currentView = 22" @notificationView="currentView = 23" />
       <PaymentView          v-if="currentView==18" />

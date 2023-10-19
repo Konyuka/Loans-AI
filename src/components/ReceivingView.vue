@@ -1,8 +1,17 @@
 <script setup>
 import { ref, watch, onMounted } from "vue";
 
+const props = defineProps({
+    cashApplication: Boolean
+});
+
 onMounted(() => {
     window.scrollTo(0, 0);
+
+    if(props.cashApplication){
+        cash.value= true;
+    }
+
 });
 
 const emit = defineEmits([
@@ -49,7 +58,8 @@ watch(bank, (newX) => {
                     <div class="flex w-[90vw] relative">
 
                         <div class="text-center">
-                            <h2 class="text-xl font-semibold text-primary">How would you like to receive your funds?</h2>
+                            <h2 v-if="!cashApplication" class="text-xl font-semibold text-primary">How would you like to receive your funds?</h2>
+                            <!-- <h2 v-if="cashApplication" class="text-xl font-semibold text-primary text-center">Our office location</h2> -->
                         </div>
                     </div>
 
@@ -60,7 +70,7 @@ watch(bank, (newX) => {
                             <fieldset>
                                 <div class="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
 
-                                    <div class="relative flex items-start py-4">
+                                    <div v-if="!cashApplication" class="relative flex items-start py-4">
                                         <div class="min-w-0 flex-1 text-sm leading-6">
                                             <label for="side-null"
                                                 class="select-none font-medium text-primary text-lg">Card</label>
@@ -71,7 +81,8 @@ watch(bank, (newX) => {
                                                 class="h-4 w-4 rounded border-black text-primary focus:ring-primary">
                                         </div>
                                     </div>
-                                    <div class="relative flex items-start py-4">
+
+                                    <div v-if="!cashApplication" class="relative flex items-start py-4">
                                         <div class="min-w-0 flex-1 text-sm leading-6">
                                             <label for="side-null"
                                                 class="select-none font-medium text-primary text-lg">Bank</label>
@@ -254,8 +265,8 @@ watch(bank, (newX) => {
 
                     </div>
 
-                    <div v-if="cash != false || card != false || bank != false" class="flex flex-col place-content-center my-10 pb-10">
-                        <button @click="$emit('dueView')" type="button"
+                    <div v-if="cash != false  || card != false  || bank != false" class="flex flex-col place-content-center my-10 pb-10">
+                        <button v-if="cashApplication != true" @click="$emit('dueView')" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>
                                 Confirm

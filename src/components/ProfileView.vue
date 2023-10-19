@@ -25,10 +25,10 @@ const setTab = (tab) => {
     currentTab.value = tab
 }
 
-
 onMounted(() => {
     window.scrollTo(0, 0);
 });
+
 </script>
 
 <template>
@@ -329,7 +329,9 @@ onMounted(() => {
                             <li class="flex items-center justify-between gap-x-6 py-5">
                                 <div class="min-w-0">
                                     <div class="flex items-start gap-x-3">
-                                        <p class="text-sm font-semibold leading-6 text-gray-900">Applied for 160 OMR</p>
+                                        <p class="text-[10px] font-semibold leading-6 text-gray-900">Loan ID: <span
+                                                class="text-primary text-xs">#SP-1034</span> Loan Amount: <span
+                                                class="text-primary text-xs">160 OMR</span> </p>
                                     </div>
                                     <div class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
                                         <p class="whitespace-nowrap">Applied:
@@ -345,7 +347,8 @@ onMounted(() => {
                                 </div>
                                 <div class="flex flex-none items-center gap-x-4">
                                     <div class="relative flex-none">
-                                        <button @click="summaryModal=!summaryModal" type="button" class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900"
+                                        <button @click="summaryModal = !summaryModal" type="button"
+                                            class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900"
                                             id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
                                             <span class="sr-only">Open options</span>
                                             <i class="fas fa-eye text-primary"></i>
@@ -356,7 +359,9 @@ onMounted(() => {
                             <li class="flex items-center justify-between gap-x-6 py-5">
                                 <div class="min-w-0">
                                     <div class="flex items-start gap-x-3">
-                                        <p class="text-sm font-semibold leading-6 text-gray-900">Applied for 160 OMR</p>
+                                        <p class="text-[10px] font-semibold leading-6 text-gray-900">Loan ID: <span
+                                                class="text-primary text-xs">#SP-1034</span> Loan Amount: <span
+                                                class="text-primary text-xs">160 OMR</span> </p>
                                     </div>
                                     <div class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
                                         <p class="whitespace-nowrap">Applied:
@@ -372,7 +377,8 @@ onMounted(() => {
                                 </div>
                                 <div class="flex flex-none items-center gap-x-4">
                                     <div class="relative flex-none">
-                                        <button @click="summaryModal=!summaryModal" type="button" class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900"
+                                        <button @click="summaryModal = !summaryModal" type="button"
+                                            class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900"
                                             id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
                                             <span class="sr-only">Open options</span>
                                             <i class="fas fa-eye text-primary"></i>
@@ -383,7 +389,9 @@ onMounted(() => {
                             <li class="flex items-center justify-between gap-x-6 py-5">
                                 <div class="min-w-0">
                                     <div class="flex items-start gap-x-3">
-                                        <p class="text-sm font-semibold leading-6 text-gray-900">Applied for 160 OMR</p>
+                                        <p class="text-[10px] font-semibold leading-6 text-gray-900">Loan ID: <span
+                                                class="text-primary text-xs">#SP-1034</span> Loan Amount: <span
+                                                class="text-primary text-xs">160 OMR</span> </p>
                                     </div>
                                     <div class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
                                         <p class="whitespace-nowrap">Applied:
@@ -399,7 +407,8 @@ onMounted(() => {
                                 </div>
                                 <div class="flex flex-none items-center gap-x-4">
                                     <div class="relative flex-none">
-                                        <button @click="summaryModal=!summaryModal" type="button" class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900"
+                                        <button @click="summaryModal = !summaryModal" type="button"
+                                            class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900"
                                             id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
                                             <span class="sr-only">Open options</span>
                                             <i class="fas fa-eye text-primary"></i>
@@ -420,7 +429,7 @@ onMounted(() => {
 
                 <div class="fixed inset-0 bg-primary bg-opacity-70"></div>
 
-                <div class="mb-[10vh] fixed inset-0 z-10 w-screen overflow-y-auto">
+                <div class="mb-[4vh] fixed inset-0 z-10 w-screen overflow-y-auto">
                     <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
 
                         <div
@@ -440,7 +449,7 @@ onMounted(() => {
                                                 class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                                                 <p class="self-center text-medium text-sm text-primary-100">Loan Requested
                                                 </p>
-                                                <p class="self-center text-primary font-bold">160  OMR</p>
+                                                <p class="self-center text-primary font-bold">160 OMR</p>
                                             </div>
                                             <div
                                                 class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
@@ -470,13 +479,41 @@ onMounted(() => {
                                             <div
                                                 class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                                                 <p class="self-center text-medium text-sm text-gray">Late payment fee</p>
-                                                <p class="self-center text-primary font-bold text-center text-sm">2 OMR (2%)</p>
+                                                <p class="self-center text-primary font-bold text-center text-sm">2 OMR (2%)
+                                                </p>
                                             </div>
 
                                             <div
                                                 class="col-span-2 place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
-                                                <p class="self-center text-medium text-sm text-gray">You paid back</p>
-                                                <p class="self-center text-primary font-bold text-center text-lg">175 OMR</p>
+                                                <p class="self-center text-medium text-sm text-gray">Payment Batches</p>
+                                                <div class="">
+                                                    <p class="text-[10px] font-semibold leading-6 text-gray-900 flex justify-around">
+                                                        <span>
+                                                            Date:
+                                                            <span class="text-primary font-bold">Apr 17, 2023</span> 
+                                                        </span>
+                                                        <span>
+                                                            Amount:
+                                                            <span class="text-primary font-bold">75 OMR</span> 
+                                                        </span>
+                                                    </p>
+                                                    <p class="text-[10px] font-semibold leading-6 text-gray-900 flex justify-around">
+                                                        <span>
+                                                            Date:
+                                                            <span class="text-primary font-bold">Jun 30, 2023</span> 
+                                                        </span>
+                                                        <span>
+                                                            Amount:
+                                                            <span class="text-primary font-bold">100 OMR</span> 
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-span-2 place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
+                                                <p class="self-center text-medium text-sm text-gray">Total paid back</p>
+                                                <p class="self-center text-primary font-bold text-center text-lg">175 OMR
+                                                </p>
                                             </div>
 
 
@@ -485,7 +522,7 @@ onMounted(() => {
                                 </div>
                             </div>
                             <div class="mt-5 sm:mt-6">
-                                <button type="button" @click="summaryModal=!summaryModal"
+                                <button type="button" @click="summaryModal = !summaryModal"
                                     class="inline-flex w-full justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     Close Summary
                                 </button>
@@ -503,14 +540,17 @@ onMounted(() => {
         <Footer class="fixed bottom-0"></Footer>
 
 
-    </main></template>
+    </main>
+</template>
 
 <style src="@vueform/slider/themes/default.css"></style>
 
-<style scoped>.slider-red {
+<style scoped>
+.slider-red {
     --slider-connect-bg: #1f3357;
     --slider-tooltip-bg: #1f3357;
     --slider-handle-ring-color: black;
     --slider-height: 10px;
     --slider-radius: 9999px;
-}</style>
+}
+</style>

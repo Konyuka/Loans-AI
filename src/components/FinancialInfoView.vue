@@ -8,6 +8,11 @@ const emit = defineEmits([
 
 const docsModal = ref(false);
 
+const applyNoDocs = () => {
+    const noDocs = true
+    emit('verificationView', noDocs);
+}
+
 onMounted(() => {
     window.scrollTo(0, 0);
 });
@@ -176,14 +181,17 @@ onMounted(() => {
                                     <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Application without documents</h3>
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                            For loan applications without the required documents, we only allow cach pick up from our branches.
+                                            For loan applications without the required documents, we only allow cash pick up from our branches.
                                             You only need to provide a collateral of you labour card and passport for your loan request to be processed. 
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                                <button @click="docsModal=!docsModal" type="button"
+                                <!-- @click="applyNoDocs()"  -->
+                                <button 
+                                    @click="$emit('verificationView', 'noDocs')" 
+                                    type="button"
                                     class="inline-flex w-full justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2">Proceed</button>
                                 <button @click="docsModal = !docsModal" type="button"
                                     class="mt-3 inline-flex w-full justify-center rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">Cancel</button>
