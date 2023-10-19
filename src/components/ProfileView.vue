@@ -13,7 +13,7 @@ const user = ref({
     password: null,
 });
 
-const currentTab = ref('history');
+const currentTab = ref('profile');
 const summaryModal = ref(false);
 
 const month = ref({
