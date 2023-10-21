@@ -6,7 +6,7 @@ import WOW from 'wow.js';
 onMounted(() => {
   new WOW().init();
 });
-
+// check
 </script>
 
 <template>
