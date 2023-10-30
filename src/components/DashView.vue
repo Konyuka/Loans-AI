@@ -17,9 +17,10 @@ const duration = ref(1);
 const loanType = ref('individual');
 const loanTypeModal = ref(false);
 const choosenSmeLoan = ref(null);
+const loanUseModal = ref(false);
 
 watch(loanType, (newX) => {
-    if(newX=='sme'){
+    if (newX == 'sme') {
         loanTypeModal.value = true
     }
 });
@@ -27,7 +28,7 @@ watch(loanType, (newX) => {
 const loanSubtype = ref(null);
 watch(loanSubtype, (newX) => {
     choosenSmeLoan.value = newX;
-    loanTypeModal.value = false 
+    loanTypeModal.value = false
 });
 
 const totalInterestRate = computed(() => {
@@ -72,12 +73,36 @@ const requestLoan = () => {
 
 };
 
+const requestLoan2 = () => {
+    const loanDetails = {
+        amount: amount.value,
+        term: duration.value,
+        interestRate: interestRate.value,
+        totalInterestRate: totalInterestRate.value,
+        acrruedInterest: acrruedInterest.value,
+        totalAcrruedInterest: totalAcrruedInterest.value,
+        processingFee: processingFee.value,
+        receivingAmount: receivingAmount.value
+    }
+
+    loanData.updateLoanData(loanDetails);
+
+    loanUseModal.value = true;
+
+};
+
 const setTab = (tab) => {
     loanType.value = tab
 }
 
 const setLoanSubtype = (loan) => {
     loanSubtype.value = loan
+}
+
+const choosePurpose = () => {
+    loanUseModal.value = false;
+        // emit('identityView')
+
 }
 
 onMounted(() => {
@@ -220,9 +245,12 @@ onMounted(() => {
                         <div class="relative">
                             <h1 class="mb-8 tracking-widest text-xl font-medium text-center">Loan Amount</h1>
 
-                            <Slider v-if="choosenSmeLoan == 'short'" v-model="amount" :min="100" :max="10000" :step="10" class="slider-red" />
-                            <Slider v-if="choosenSmeLoan == 'capital'" v-model="amount" :min="100" :max="50000" :step="10" class="slider-red" />
-                            <Slider v-if="choosenSmeLoan == 'equipment'" v-model="amount" :min="100" :max="100000" :step="10" class="slider-red" />
+                            <Slider v-if="choosenSmeLoan == 'short'" v-model="amount" :min="100" :max="10000" :step="10"
+                                class="slider-red" />
+                            <Slider v-if="choosenSmeLoan == 'capital'" v-model="amount" :min="100" :max="50000"
+                                :step="10" class="slider-red" />
+                            <Slider v-if="choosenSmeLoan == 'equipment'" v-model="amount" :min="100" :max="100000"
+                                :step="10" class="slider-red" />
 
                             <div v-if="choosenSmeLoan == 'short'" class="absolute grid grid-cols-3 w-full mt-2">
                                 <div class="text-gray -mb-6 ">100 OMR</div>
@@ -253,9 +281,12 @@ onMounted(() => {
 
                         <div class="relative">
                             <h1 class="mb-8 tracking-widest text-xl font-medium text-center">Loan Duration</h1>
-                            <Slider v-if="choosenSmeLoan == 'short'" v-model="duration" :min="3" :max="12" :step="1" class="slider-red" />
-                            <Slider v-if="choosenSmeLoan == 'capital'" v-model="duration" :min="1" :max="3" :step="1" class="slider-red" />
-                            <Slider v-if="choosenSmeLoan == 'equipment'" v-model="duration" :min="1" :max="5" :step="1" class="slider-red" />
+                            <Slider v-if="choosenSmeLoan == 'short'" v-model="duration" :min="3" :max="12" :step="1"
+                                class="slider-red" />
+                            <Slider v-if="choosenSmeLoan == 'capital'" v-model="duration" :min="1" :max="3" :step="1"
+                                class="slider-red" />
+                            <Slider v-if="choosenSmeLoan == 'equipment'" v-model="duration" :min="1" :max="5" :step="1"
+                                class="slider-red" />
 
                             <div v-if="choosenSmeLoan == 'short'" class="absolute grid grid-cols-3 w-full mt-2">
                                 <div class="text-gray -mb-6 ">1 Month</div>
@@ -295,7 +326,8 @@ onMounted(() => {
                             </div>
                             <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
                                 <p class="self-center text-medium text-sm text-primary-100">Loan Term</p>
-                                <p v-if="choosenSmeLoan == 'short'" class="self-center text-primary font-bold">{{ duration }} Month(s)</p>
+                                <p v-if="choosenSmeLoan == 'short'" class="self-center text-primary font-bold">{{
+                                    duration }} Month(s)</p>
                                 <p v-else class="self-center text-primary font-bold">{{ duration }} Year(s)</p>
                             </div>
                             <div class="place-content-center flex flex-col  bg-white shadow-lg rounded-xl  h-20 w-full">
@@ -338,7 +370,7 @@ onMounted(() => {
                     </div>
 
                     <div class="flex flex-col place-content-center mb-14">
-                        <button @click="requestLoan()" type="button"
+                        <button @click="requestLoan2()" type="button"
                             class="w-full rounded-2xl bg-primary px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <span>
                                 Get instant loan
@@ -348,7 +380,8 @@ onMounted(() => {
                     </div>
                 </div>
 
-                <div v-if="loanTypeModal" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <div v-if="loanTypeModal" class="relative z-10" aria-labelledby="modal-title" role="dialog"
+                    aria-modal="true">
 
                     <div class="fixed inset-0 bg-primary bg-opacity-75 transition-opacity"></div>
 
@@ -357,7 +390,8 @@ onMounted(() => {
 
                             <div
                                 class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                                <i @click="loanTypeModal=!loanTypeModal" class="fas fa-xmark right-0 absolute px-5 text-md text-primary"></i>
+                                <i @click="loanTypeModal = !loanTypeModal"
+                                    class="fas fa-xmark right-0 absolute px-5 text-md text-primary"></i>
                                 <div>
                                     <div
                                         class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary-100">
@@ -388,6 +422,54 @@ onMounted(() => {
                     </div>
                 </div>
 
+                <div v-if="loanUseModal" class="relative z-10" aria-labelledby="modal-title" role="dialog"
+                    aria-modal="true">
+
+                    <div class="fixed inset-0 bg-primary bg-opacity-75 transition-opacity"></div>
+
+                    <div class="mb-[25vh] fixed inset-0 z-10 w-screen overflow-y-auto">
+                        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+                            <div
+                                class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                                <i @click="loanTypeModal = !loanTypeModal"
+                                    class="fas fa-xmark right-0 absolute px-5 text-md text-primary"></i>
+                                <div>
+                                    <div
+                                        class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary-100">
+                                        <i class="text-primary text-lg fas fa-coins"></i>
+                                    </div>
+                                    <div class="mt-3 text-center sm:mt-5">
+                                        <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">
+                                            Choose the purpose of your loan
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div class="relative mt-5 grid grid-cols-1 gap-2">
+                                    <div>
+                                        <select id="location" name="location"
+                                            class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6">
+                                            <option></option>
+                                            <option>Inventory Purchase</option>
+                                            <option>Equipment Financing</option>
+                                            <option>Business Expansion</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-5 sm:mt-6">
+                                    <button @click="choosePurpose()" type="button"
+                                        class="mt-5 inline-flex w-full justify-center rounded-md bg-primary px-3 py-3 text-xs font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        Proceed
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>
@@ -411,4 +493,5 @@ onMounted(() => {
     --slider-handle-ring-color: black;
     --slider-height: 10px;
     --slider-radius: 9999px;
-}</style>
+}
+</style>

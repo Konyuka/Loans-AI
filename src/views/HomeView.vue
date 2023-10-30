@@ -24,8 +24,9 @@ import DebitView from '../components/DebitView.vue';
 import ApprovalView from '../components/ApprovalView.vue';
 import ProfileView from '../components/ProfileView.vue';
 import NotificationView from '../components/NotificationView.vue';
+import SMEView from '../components/SMEView.vue';
 
-const currentView = ref(8);
+const currentView = ref(24);
 
 const cashApplication = ref(false)
 
@@ -58,6 +59,7 @@ const processVerification = (noDocs) => {
       <ContactInfoView      v-if="currentView==12" @personalView="currentView = 11" @employmentView="currentView = 13"/>
       <EmploymentInfoView   v-if="currentView==13" @contactView="currentView = 11" @financialView="currentView = 14"/>
       <FinancialInfoView    v-if="currentView==14" @employmentView="currentView = 13" @verificationView="processVerification"/>
+      <SMEView         v-if="currentView==24" @dashView="currentView = 8" @selfieView="currentView = 10"/>
       <VerificationSuccessView v-if="currentView==15" @financialView="currentView = 14" @receivingView="currentView = 16"/>
       <ReceivingView        v-if="currentView==16" @verificationView="currentView = 15" @dueView="currentView = 17" :cashApplication="cashApplication"/>
       <DebitView            v-if="currentView==19" @pendingView="currentView = 20" @approvalView="currentView = 20"/>
