@@ -26,7 +26,7 @@ import ProfileView from '../components/ProfileView.vue';
 import NotificationView from '../components/NotificationView.vue';
 import SMEView from '../components/SMEView.vue';
 
-const currentView = ref(24);
+const currentView = ref(1);
 
 const cashApplication = ref(false)
 
@@ -51,7 +51,7 @@ const processVerification = (noDocs) => {
       <ForgotView           v-if="currentView==5"  @signInView="currentView = 2" @confirmView="currentView = 7"/>
       <ResetView            v-if="currentView==6" />
       <ConfirmView          v-if="currentView==7" @signInView="currentView = 2"/>
-      <DashView             v-if="currentView==8" @identityView="currentView = 9"  @profileView="currentView = 22" @notificationView="currentView = 23"/>
+      <DashView             v-if="currentView==8" @identityView="currentView = 9" @SMEView="currentView=24" @profileView="currentView = 22" @notificationView="currentView = 23"/>
       <DashPendingView      v-if="currentView==21" @identityView="currentView = 9" @receivingView="currentView = 16" />
       <IdentityView         v-if="currentView==9" @dashView="currentView = 8" @selfieView="currentView = 10"/>
       <SelfieView           v-if="currentView==10" @identityView="currentView = 9" @personalView="currentView=11"/>
@@ -59,7 +59,7 @@ const processVerification = (noDocs) => {
       <ContactInfoView      v-if="currentView==12" @personalView="currentView = 11" @employmentView="currentView = 13"/>
       <EmploymentInfoView   v-if="currentView==13" @contactView="currentView = 11" @financialView="currentView = 14"/>
       <FinancialInfoView    v-if="currentView==14" @employmentView="currentView = 13" @verificationView="processVerification"/>
-      <SMEView         v-if="currentView==24" @dashView="currentView = 8" @selfieView="currentView = 10"/>
+      <SMEView         v-if="currentView==24" @pendingView="currentView=21" @dashView="currentView = 8" @selfieView="currentView = 10"/>
       <VerificationSuccessView v-if="currentView==15" @financialView="currentView = 14" @receivingView="currentView = 16"/>
       <ReceivingView        v-if="currentView==16" @verificationView="currentView = 15" @dueView="currentView = 17" :cashApplication="cashApplication"/>
       <DebitView            v-if="currentView==19" @pendingView="currentView = 20" @approvalView="currentView = 20"/>

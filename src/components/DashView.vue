@@ -13,6 +13,7 @@ const emit = defineEmits([
 
 const amount = ref(20);
 const duration = ref(1);
+const loanPurpose = ref(null);
 
 const loanType = ref('individual');
 const loanTypeModal = ref(false);
@@ -92,6 +93,9 @@ const requestLoan2 = () => {
 };
 
 const setTab = (tab) => {
+    if(tab=='sme'){
+        loanTypeModal.value = true
+    }
     loanType.value = tab
 }
 
@@ -101,7 +105,7 @@ const setLoanSubtype = (loan) => {
 
 const choosePurpose = () => {
     loanUseModal.value = false;
-        // emit('identityView')
+    emit('SMEView')
 
 }
 
@@ -448,15 +452,20 @@ onMounted(() => {
 
                                 <div class="relative mt-5 grid grid-cols-1 gap-2">
                                     <div>
-                                        <select id="location" name="location"
+                                        <select v-model="loanPurpose" id="location" name="location"
                                             class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6">
                                             <option></option>
                                             <option>Inventory Purchase</option>
-                                            <option>Equipment Financing</option>
+                                            <option value="2">Equipment Financing</option>
                                             <option>Business Expansion</option>
                                             <option>Other</option>
                                         </select>
                                     </div>
+
+                                    <p v-if="loanPurpose==2" class="mt-5 italic font-semibold text-primary text-xs">
+                                        Kindly note that for Equipment Financing a collateral and/or accounts receivable is required. <br> <br>
+                                        Collateral could be assets like Real Estate, Machinery Equipment, Inventory but not limited to 
+                                    </p>
                                 </div>
                                 
                                 <div class="mt-5 sm:mt-6">
