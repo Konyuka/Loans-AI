@@ -13,7 +13,7 @@ const emit = defineEmits([
 
 const amount = ref(20);
 const duration = ref(1);
-const loanPurpose = ref(null);
+const loanPurpose = ref(1);
 
 const loanType = ref('individual');
 const loanTypeModal = ref(false);
@@ -454,7 +454,7 @@ onMounted(() => {
                                     <div>
                                         <select v-model="loanPurpose" id="location" name="location"
                                             class="px-10 block w-full rounded-md border-0 bg-white py-5 text-black tracking-wide font-meduim text-left shadow-lg ring-1 ring-inset ring-white focus:ring-primary sm:text-sm sm:leading-6">
-                                            <option></option>
+                                            <option value="1">Select</option>
                                             <option>Inventory Purchase</option>
                                             <option value="2">Equipment Financing</option>
                                             <option>Business Expansion</option>
